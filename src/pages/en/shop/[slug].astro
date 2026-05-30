@@ -2,7 +2,7 @@
 import Base from '../../../layouts/Base.astro';
 import Contact from '../../../components/Contact.astro';
 import { t, localePath } from '../../../i18n';
-import { PRODUCTS } from '../../../data/products';
+import { PRODUCTS, productName } from '../../../data/products';
 import { SITE } from '../../../data/site';
 
 export function getStaticPaths() {
@@ -12,12 +12,13 @@ export function getStaticPaths() {
 const { product } = Astro.props;
 const locale = 'en' as const;
 const dict = t(locale);
+const name = productName(product, locale);
 const sold = product.status === 'sold_out';
 const fmt = (n: number) => new Intl.NumberFormat('en-US').format(n);
-const waMsg = `Hi, I'm interested in "${product.name}".`;
+const waMsg = `Hi, I'm interested in "${name}".`;
 const waHref = `${SITE.whatsappUrl}?text=${encodeURIComponent(waMsg)}`;
 ---
-<Base locale={locale} pageKey="product" titleOverride={`${product.name} · ${dict.shop.title}`}>
+<Base locale={locale} pageKey="product" titleOverride={`${name} · ${dict.shop.title}`}>
   <section class="relative bg-[var(--color-bg)] pt-28 sm:pt-32 pb-20 sm:pb-28">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
       <a href={localePath(locale, 'shop')} class="reveal inline-flex items-center text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors mb-8">
@@ -28,7 +29,7 @@ const waHref = `${SITE.whatsappUrl}?text=${encodeURIComponent(waMsg)}`;
           <figure class="relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-sm bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">
             <picture>
               <source srcset={`${product.images[0]}.webp`} type="image/webp" data-hero-source />
-              <img src={`${product.images[0]}.jpg`} alt={product.name} class={`w-full h-full object-cover ${sold ? 'grayscale opacity-70' : ''}`} loading="eager" decoding="async" data-hero-img />
+              <img src={`${product.images[0]}.jpg`} alt={name} class={`w-full h-full object-cover ${sold ? 'grayscale opacity-70' : ''}`} loading="eager" decoding="async" data-hero-img />
             </picture>
             {sold && (
               <span class="absolute top-4 left-4 text-xs font-semibold uppercase tracking-widest bg-[var(--color-red)] text-white px-3 py-1 rounded-sm">{dict.shop.sold_out}</span>
@@ -41,7 +42,7 @@ const waHref = `${SITE.whatsappUrl}?text=${encodeURIComponent(waMsg)}`;
                 <button
                   type="button"
                   data-thumb={`${img}`}
-                  aria-label={`${product.name} ${i + 1}`}
+                  aria-label={`${name} ${i + 1}`}
                   class={`relative aspect-square overflow-hidden rounded-sm border transition-colors ${i === 0 ? 'border-[var(--color-accent)]' : 'border-[var(--color-border)] hover:border-[var(--color-text-muted)]'}`}
                 >
                   <picture>
@@ -56,8 +57,14 @@ const waHref = `${SITE.whatsappUrl}?text=${encodeURIComponent(waMsg)}`;
 
         <div class="reveal" style="transition-delay: 100ms">
           <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-3">{dict.shop.product_label}</p>
-          <h1 class="font-display text-3xl sm:text-5xl text-white leading-tight">{product.name}</h1>
+          <h1 class="font-display text-3xl sm:text-5xl text-white leading-tight">{name}</h1>
           <p class="mt-5 text-base text-[var(--color-text)]/85">{product.blurb[locale]}</p>
+
+          {product.description && (
+            <div class="mt-5 space-y-3 text-sm sm:text-base text-[var(--color-text)]/75 leading-relaxed">
+              {product.description[locale].map((para) => <p>{para}</p>)}
+            </div>
+          )}
 
           {product.variants ? (
             <dl class="mt-8 divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
