@@ -4,8 +4,8 @@ const { locale } = Astro.props as { locale: Locale };
 const dict = t(locale);
 
 const offers = [
-  { key: 'car', image: '/images/bmw-e46-night-side', pos: 'center 62%', ...dict.partnerships.offers.car },
-  { key: 'uniform', image: '/images/fans-supporters-portrait', pos: 'center', ...dict.partnerships.offers.uniform },
+  { key: 'car', image: '/images/bmw-e46-night-side', pos: 'center 74%', ...dict.partnerships.offers.car },
+  { key: 'uniform', image: '/images/fans-supporters-portrait', pos: 'center 38%', ...dict.partnerships.offers.uniform },
   { key: 'social', image: '/images/drift-action-pakelo-track', pos: 'center', ...dict.partnerships.offers.social },
   { key: 'paddock', image: '/images/team-paddock-group', pos: 'center', ...dict.partnerships.offers.paddock },
 ];
@@ -25,7 +25,6 @@ const offers = [
           </picture>
           <div class="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/5"></div>
           <div class="relative h-full flex flex-col justify-end p-6 sm:p-8">
-            <div class="text-[10px] font-mono tracking-widest text-[var(--color-accent)]/70 mb-1.5">0{i + 1}</div>
             <h3 class="font-display text-xl sm:text-2xl text-white leading-tight">{o.title}</h3>
             <p class="mt-2 text-sm sm:text-base text-[var(--color-text)]/85 max-w-prose">{o.body}</p>
           </div>
