@@ -25,9 +25,9 @@
   "about": {
     "kicker": "Despre echipă",
     "title": "Cucerim driftul românesc, cu pasiune.",
-    "body": "Suntem o echipă pasionată de motorsport, intrată în al patrulea sezon în Campionatul Național de Drift (RoDrift). În 2024 am fost promovați în clasa PRO. În 2025 am terminat sezonul pe locul 7. În 2026 luptăm pentru titlu. Construim mașinile cu mâna noastră, filmăm tot procesul și avem cel mai mare canal de YouTube despre drift din România.",
+    "body": "Suntem o echipă pasionată de motorsport, intrată în al cincilea sezon în Campionatul Național de Drift (RoDrift). În 2024 am fost promovați în clasa PRO. În 2025 am terminat sezonul pe locul 7. În 2026 luptăm pentru titlu. Construim mașinile cu mâna noastră, filmăm tot procesul și avem cel mai mare canal de YouTube despre drift din România.",
     "stats": {
-      "season": "al 4-lea sezon",
+      "season": "Locul 7 în 2025",
       "class": "Clasa PRO"
     }
   },
@@ -53,6 +53,10 @@
       "power_v": "600 HP",
       "torque": "Cuplu",
       "torque_v": "800 Nm",
+      "gearbox": "Cutie viteze",
+      "gearbox_v": "Sequențială",
+      "diff": "Diferențial",
+      "diff_v": "Winters",
       "chassis": "Șasiu",
       "chassis_v": "BMW E46 Coupé"
     }

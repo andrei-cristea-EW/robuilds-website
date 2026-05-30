@@ -5,7 +5,7 @@ import { REACH } from '../data/site';
 const { locale } = Astro.props as { locale: Locale };
 const dict = t(locale);
 const items = REACH
-  .filter((r) => r.key !== 'yt_subs' && r.key !== 'ig_followers')
+  .filter((r) => r.key !== 'yt_subs' && r.key !== 'ig_followers' && r.key !== 'tt_followers')
   .map((r) => {
     const label = (dict.reach.metrics as Record<string, string>)[r.key];
     const decimals = r.value % 1 === 0 ? 0 : 1;

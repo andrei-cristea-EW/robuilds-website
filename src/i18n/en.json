@@ -25,9 +25,9 @@
   "about": {
     "kicker": "About",
     "title": "Conquering Romanian drift, with passion.",
-    "body": "We're a motorsport-obsessed team entering our fourth season in the Romanian National Drift Championship (RoDrift). Promoted to the PRO class in 2024. P7 in 2025. Fighting for the title in 2026. We hand-build our cars, film the whole process and run Romania's biggest drift YouTube channel.",
+    "body": "We're a motorsport-obsessed team entering our fifth season in the Romanian National Drift Championship (RoDrift). Promoted to the PRO class in 2024. P7 in 2025. Fighting for the title in 2026. We hand-build our cars, film the whole process and run Romania's biggest drift YouTube channel.",
     "stats": {
-      "season": "4th season",
+      "season": "P7 in 2025",
       "class": "PRO class"
     }
   },
@@ -53,6 +53,10 @@
       "power_v": "600 HP",
       "torque": "Torque",
       "torque_v": "800 Nm",
+      "gearbox": "Gearbox",
+      "gearbox_v": "Sequential",
+      "diff": "Differential",
+      "diff_v": "Winters",
       "chassis": "Chassis",
       "chassis_v": "BMW E46 Coupé"
     }
