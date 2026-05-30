@@ -63,7 +63,7 @@
   },
   "team": {
     "kicker": "Echipa",
-    "title": "Patru oameni, o singură misiune.",
+    "title": "Cinci oameni, o singură misiune.",
     "members": {
       "andrei": {
         "name": "Andrei Cristea",
@@ -80,6 +80,10 @@
       "radu": {
         "name": "Radu Cristea",
         "role": "Media"
+      },
+      "bogdan": {
+        "name": "Bogdan Bucalet",
+        "role": "Spotter"
       }
     }
   },

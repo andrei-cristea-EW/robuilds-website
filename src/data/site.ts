@@ -65,6 +65,12 @@ export const TEAM = [
     photoFallback: '/images/team/radu.jpg',
     instagram: '',
   },
+  {
+    key: 'bogdan',
+    photo: '/images/team/bogdan.webp',
+    photoFallback: '/images/team/bogdan.jpg',
+    instagram: '',
+  },
 ] as const;
 
 export const REACH = [
