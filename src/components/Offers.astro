@@ -16,18 +16,18 @@ const offers = [
       <h2 class="font-display text-3xl sm:text-5xl text-white">{dict.partnerships.offers_title}</h2>
     </div>
 
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+    <div class="grid sm:grid-cols-2 gap-4 sm:gap-6">
       {offers.map((o, i) => (
-        <article class="reveal group relative aspect-[4/3] overflow-hidden rounded-sm bg-[var(--color-bg-card)] border border-[var(--color-border)]" style={`transition-delay: ${i * 80}ms`}>
+        <article class="reveal group relative aspect-[16/10] overflow-hidden rounded-sm bg-[var(--color-bg-card)] border border-[var(--color-border)]" style={`transition-delay: ${i * 80}ms`}>
           <picture>
             <source srcset={`${o.image}.webp`} type="image/webp" />
             <img src={`${o.image}.jpg`} alt="" style={`object-position: ${o.pos};`} class="absolute inset-0 w-full h-full object-cover opacity-70 group-hover:opacity-85 group-hover:scale-105 transition-all duration-700" loading="lazy" decoding="async" />
           </picture>
           <div class="absolute inset-0 bg-gradient-to-t from-black via-black/45 to-black/5"></div>
-          <div class="relative h-full flex flex-col justify-end p-5 sm:p-6">
-            <div class="text-xs font-mono text-[var(--color-accent)] mb-2">0{i + 1}</div>
+          <div class="relative h-full flex flex-col justify-end p-6 sm:p-8">
+            <div class="text-[10px] font-mono tracking-widest text-[var(--color-accent)]/70 mb-1.5">0{i + 1}</div>
             <h3 class="font-display text-xl sm:text-2xl text-white leading-tight">{o.title}</h3>
-            <p class="mt-2 text-sm text-[var(--color-text)]/85">{o.body}</p>
+            <p class="mt-2 text-sm sm:text-base text-[var(--color-text)]/85 max-w-prose">{o.body}</p>
           </div>
         </article>
       ))}
