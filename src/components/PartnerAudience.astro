@@ -1,0 +1,86 @@
+---
+import { t, type Locale } from '../i18n';
+import { SOCIALS, REACH } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+const aud = dict.partnerships.audience;
+const dec = (n: number) => (n % 1 === 0 ? 0 : 1);
+
+const yt = SOCIALS.find((s) => s.key === 'youtube')!;
+const ig = SOCIALS.find((s) => s.key === 'instagram')!;
+const tt = SOCIALS.find((s) => s.key === 'tiktok')!;
+const r = (k: string) => REACH.find((x) => x.key === k)!;
+
+const channelCards = [
+  { ...r('yt_subs'), label: dict.channel.metrics.yt_subs, handle: yt.handle, href: yt.url, hover: 'hover:border-[var(--color-red)]', icon: 'yt' },
+  { ...r('ig_followers'), label: dict.channel.metrics.ig_followers, handle: ig.handle, href: ig.url, hover: 'hover:border-[var(--color-accent)]', icon: 'ig' },
+  { ...r('tt_followers'), label: dict.channel.metrics.tt_followers, handle: tt.handle, href: tt.url, hover: 'hover:border-white', icon: 'tt' },
+];
+
+const rodrift = REACH
+  .filter((x) => !['yt_subs', 'ig_followers', 'tt_followers'].includes(x.key))
+  .map((x) => ({ ...x, label: (dict.reach.metrics as Record<string, string>)[x.key], decimals: dec(x.value) }));
+---
+<section id="reach" class="relative bg-[var(--color-bg-elevated)] py-20 sm:py-28 overflow-hidden">
+  <div aria-hidden="true" class="absolute inset-0 -z-10 opacity-[0.04] bg-[radial-gradient(circle_at_70%_30%,var(--color-accent),transparent_55%)]"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-12 sm:mb-16 max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{aud.kicker}</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{aud.title}</h2>
+      <p class="mt-5 text-base sm:text-lg text-[var(--color-text)]/85">{aud.body}</p>
+    </div>
+
+    <!-- Our channels -->
+    <div class="reveal mb-5 sm:mb-6">
+      <h3 class="font-display text-xl sm:text-2xl text-white">{aud.channels_title}</h3>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 sm:gap-5 mb-14 sm:mb-20">
+      {channelCards.map((c, i) => (
+        <a
+          href={c.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={`reveal group flex items-center justify-between gap-4 bg-[var(--color-bg-card)] border border-[var(--color-border)] ${c.hover} rounded-sm p-5 sm:p-6 transition-colors`}
+          style={`transition-delay: ${i * 70}ms`}
+        >
+          <div>
+            <div class="flex items-baseline gap-1 font-display text-white">
+              <span data-counter data-target={c.value} data-decimals={dec(c.value)} class="text-3xl sm:text-4xl tabular-nums">0</span>
+              <span class="text-xl sm:text-2xl text-[var(--color-accent)]">{c.unit}</span>
+            </div>
+            <p class="mt-1 text-xs text-[var(--color-text-muted)] uppercase tracking-wider">{c.label}</p>
+            <p class="text-sm text-white mt-1">{c.handle}</p>
+          </div>
+          {c.icon === 'yt' && (
+            <svg width="40" height="40" viewBox="0 0 24 24" class="text-[var(--color-red)] group-hover:scale-110 transition-transform" fill="currentColor" aria-hidden="true"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.3 4 12 4 12 4s-4.3 0-7.9.2c-.4 0-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.6.2 7.6.2s4.3 0 7.9-.3c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.3-3.7-.3-3.7zM9.7 15.4V8.6l5.6 3.4-5.6 3.4z"/></svg>
+          )}
+          {c.icon === 'ig' && (
+            <svg width="36" height="36" viewBox="0 0 24 24" class="text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+          )}
+          {c.icon === 'tt' && (
+            <svg width="36" height="36" viewBox="0 0 24 24" class="text-white group-hover:scale-110 transition-transform" fill="currentColor" aria-hidden="true"><path d="M16.5 2c.2 1.7 1.2 3 2.8 3.6.7.3 1.5.4 2.2.4v3.2c-1.6 0-3.2-.5-4.5-1.4v6.6c0 4-3.3 7.3-7.3 7.3S2.4 18.4 2.4 14.4c0-3.9 3.2-7.1 7.1-7.2v3.4c-2.1 0-3.8 1.7-3.8 3.8s1.7 3.9 3.9 3.9 3.9-1.7 3.9-3.9V2h2.9z"/></svg>
+          )}
+        </a>
+      ))}
+    </div>
+
+    <!-- RoDrift championship reach -->
+    <div class="reveal mb-5 sm:mb-6">
+      <h3 class="font-display text-xl sm:text-2xl text-white">{aud.rodrift_title}</h3>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-5">
+      {rodrift.map((it, i) => (
+        <div class="reveal bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm p-5 sm:p-6 hover:border-[var(--color-accent)] transition-colors" style={`transition-delay: ${i * 60}ms`}>
+          <div class="flex items-baseline gap-1 font-display text-white">
+            <span data-counter data-target={it.value} data-decimals={it.decimals} class="text-3xl sm:text-5xl tabular-nums">0</span>
+            <span class="text-xl sm:text-3xl text-[var(--color-accent)]">{it.unit}</span>
+          </div>
+          <p class="mt-2 text-xs sm:text-sm text-[var(--color-text-muted)] uppercase tracking-wider">{it.label}</p>
+        </div>
+      ))}
+    </div>
+
+    <p class="mt-8 text-xs text-[var(--color-text-muted)] italic">{dict.reach.caveat}</p>
+  </div>
+</section>

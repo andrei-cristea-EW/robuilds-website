@@ -156,6 +156,13 @@
   },
   "partnerships": {
     "title": "Partnerships",
+    "audience": {
+      "kicker": "Audience",
+      "title": "Our audience.",
+      "body": "Two sources, one story: the community we've built online and the total reach of the championship we race in.",
+      "channels_title": "Our community",
+      "rodrift_title": "RoDrift audience"
+    },
     "hero_title": "We take your brand into motorsport.",
     "hero_body": "Customisable packages for any goal — from car exposure to dedicated YouTube campaigns.",
     "offers_title": "What partners get",

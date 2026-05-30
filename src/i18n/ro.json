@@ -156,6 +156,13 @@
   },
   "partnerships": {
     "title": "Parteneriate",
+    "audience": {
+      "kicker": "Audiență",
+      "title": "Audiența noastră.",
+      "body": "Două surse, aceeași poveste: comunitatea pe care am construit-o online și expunerea totală a campionatului în care concurăm.",
+      "channels_title": "Comunitatea noastră",
+      "rodrift_title": "Audiență RoDrift"
+    },
     "hero_title": "Aducem brandul tău în motorsport.",
     "hero_body": "Pachete personalizabile pentru orice obiectiv — de la expunere pe mașină până la campanii video pe YouTube.",
     "offers_title": "Ce oferim partenerilor",

@@ -2,7 +2,7 @@
 import Base from '../layouts/Base.astro';
 import PartnershipsHero from '../components/PartnershipsHero.astro';
 import Offers from '../components/Offers.astro';
-import Reach from '../components/Reach.astro';
+import PartnerAudience from '../components/PartnerAudience.astro';
 import Contact from '../components/Contact.astro';
 import { t } from '../i18n';
 
@@ -12,6 +12,6 @@ const dict = t(locale);
 <Base locale={locale} pageKey="partnerships" titleOverride={`${dict.partnerships.title} · ${dict.meta.title}`}>
   <PartnershipsHero locale={locale} />
   <Offers locale={locale} />
-  <Reach locale={locale} />
+  <PartnerAudience locale={locale} />
   <Contact locale={locale} />
 </Base>
