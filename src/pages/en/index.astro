@@ -29,7 +29,7 @@ const tt = SOCIALS.find((s) => s.key === 'tiktok')!;
   <Support locale={locale} />
   <Contact locale={locale} />
 
-  <div class="lg:hidden fixed bottom-0 inset-x-0 z-30 px-3 pb-3 pt-2 bg-gradient-to-t from-black via-black/90 to-transparent" data-bottom-cta>
+  <div class="lg:hidden fixed bottom-0 inset-x-0 z-30 px-3 pt-2 pb-[calc(0.75rem+env(safe-area-inset-bottom))] bg-gradient-to-t from-black via-black to-transparent" data-bottom-cta>
     <div class="flex gap-2">
       <a href={yt.url} target="_blank" rel="noopener noreferrer" aria-label={yt.label} class="flex-1 inline-flex items-center justify-center py-3 border border-white/30 text-white rounded-sm transition-colors hover:bg-[#FF0000]/15 hover:border-[#FF0000] hover:text-[#FF0000]">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.3 4 12 4 12 4s-4.3 0-7.9.2c-.4 0-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.6.2 7.6.2s4.3 0 7.9-.3c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.3-3.7-.3-3.7zM9.7 15.4V8.6l5.6 3.4-5.6 3.4z"/></svg>
