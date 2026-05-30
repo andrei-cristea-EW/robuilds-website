@@ -104,7 +104,7 @@ body {
   position: absolute;
   inset: 0;
   opacity: 0;
-  animation: hero-cycle 28s infinite;
+  animation: hero-cycle 35s infinite;
   will-change: opacity, transform;
 }
 .hero-slide picture, .hero-slide img {
@@ -114,7 +114,7 @@ body {
 }
 .hero-slide img {
   object-fit: cover;
-  animation: hero-kenburns 28s infinite ease-out;
+  animation: hero-kenburns 35s infinite ease-out;
   transform-origin: center center;
 }
 .hero-slide:nth-child(1) { animation-delay: 0s; }
@@ -125,17 +125,19 @@ body {
 .hero-slide:nth-child(3) img { animation-delay: 14s; }
 .hero-slide:nth-child(4) { animation-delay: 21s; }
 .hero-slide:nth-child(4) img { animation-delay: 21s; }
+.hero-slide:nth-child(5) { animation-delay: 28s; }
+.hero-slide:nth-child(5) img { animation-delay: 28s; }
 
 @keyframes hero-cycle {
   0%   { opacity: 0; }
-  2%   { opacity: 1; }
-  23%  { opacity: 1; }
-  27%  { opacity: 0; }
+  1.6% { opacity: 1; }
+  18%  { opacity: 1; }
+  22%  { opacity: 0; }
   100% { opacity: 0; }
 }
 @keyframes hero-kenburns {
   0%   { transform: scale(1.02); }
-  27%  { transform: scale(1.12); }
+  22%  { transform: scale(1.12); }
   100% { transform: scale(1.12); }
 }
 
