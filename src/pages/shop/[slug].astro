@@ -70,11 +70,15 @@ const waHref = `${SITE.whatsappUrl}?text=${encodeURIComponent(waMsg)}`;
                 </div>
               ))}
             </dl>
-          ) : (
+          ) : product.price != null ? (
             <div class="mt-8 flex items-baseline gap-2">
               {product.priceFrom && <span class="text-sm uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.from}</span>}
               <span class="font-display text-4xl sm:text-5xl text-[var(--color-accent)] tabular-nums">{fmt(product.price)}</span>
               <span class="text-base uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.currency}</span>
+            </div>
+          ) : (
+            <div class="mt-8">
+              <span class="font-display text-2xl sm:text-3xl text-[var(--color-accent)]">{dict.shop.price_on_request}</span>
             </div>
           )}
 

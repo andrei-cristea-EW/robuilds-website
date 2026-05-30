@@ -188,11 +188,12 @@
   },
   "shop": {
     "title": "Shop",
-    "hero_title": "Parts we make ourselves.",
-    "hero_body": "Parts we develop and 3D-print ourselves for BMW. Orders via WhatsApp.",
+    "hero_title": "RO BUILDS MOTORSPORT products",
+    "hero_body": "RO BUILDS-branded products. Contact us to buy.",
     "sold_out": "Sold out",
     "from": "from",
     "currency": "RON",
+    "price_on_request": "Price on request",
     "order_cta": "Order on WhatsApp",
     "back": "← Back to shop",
     "product_label": "Product"

@@ -188,11 +188,12 @@
   },
   "shop": {
     "title": "Magazin",
-    "hero_title": "Piese făcute de noi.",
-    "hero_body": "Piese dezvoltate și printate 3D de noi pentru BMW. Comenzi prin WhatsApp.",
+    "hero_title": "Produse RO BUILDS MOTORSPORT",
+    "hero_body": "Produse marca RO BUILDS. Contactați-ne pentru a cumpăra.",
     "sold_out": "Stoc epuizat",
     "from": "de la",
     "currency": "lei",
+    "price_on_request": "Preț la cerere",
     "order_cta": "Comandă pe WhatsApp",
     "back": "← Înapoi la magazin",
     "product_label": "Produs"

@@ -3,7 +3,7 @@ export type Variant = { label: { ro: string; en: string }; price: number };
 export type Product = {
   slug: string;
   name: string;
-  price: number;          // "from" price = min variant, or the single price
+  price?: number;         // "from" price = min variant, or the single price; omit for "price on request"
   priceFrom?: boolean;    // render "de la / from"
   status: 'available' | 'sold_out';
   category: string;       // CATEGORIES key
@@ -17,8 +17,16 @@ export const CATEGORIES = [
     key: 'tail-lights',
     title: { ro: 'Stopuri 3D', en: '3D-printed tail-lights' },
     blurb: {
-      ro: 'Făcute de noi. Mai ieftine și mai arătoase decât stopurile second-hand, ușor și rapid de montat, mereu pe stoc.',
+      ro: 'Produse de noi. Mai ieftine și mai frumoase decât stopurile second-hand, ușor și rapid de montat, mereu pe stoc.',
       en: 'Made by us. Cheaper and better-looking than second-hand tail-lights, quick and easy to fit, always in stock.',
+    },
+  },
+  {
+    key: 'parts-3d',
+    title: { ro: 'Alte piese 3D', en: 'Other 3D parts' },
+    blurb: {
+      ro: 'Piese de competiție concepute și printate 3D de noi, personalizabile pentru configurația ta.',
+      en: 'Race parts we design and 3D-print ourselves, customisable to your setup.',
     },
   },
 ] as const;
@@ -72,6 +80,17 @@ export const PRODUCTS: Product[] = [
       { label: WITH_KIT, price: 550 },
       { label: NO_LIGHTS, price: 490 },
     ],
+  },
+  {
+    slug: 'cutie-diferential-quick-change',
+    name: 'Quick-Change Differential',
+    status: 'available',
+    category: 'parts-3d',
+    images: ['/images/shop/qc-box-2', '/images/shop/qc-box-1'],
+    blurb: {
+      ro: 'Cutie de diferențial Quick-Change, printată 3D. Se poate personaliza pentru rapoartele tale.',
+      en: '3D-printed quick-change differential gearbox. Customisable for your specific ratios.',
+    },
   },
 ];
 

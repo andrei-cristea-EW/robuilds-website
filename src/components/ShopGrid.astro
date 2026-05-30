@@ -44,9 +44,15 @@ const groups = CATEGORIES
                   <h3 class="font-display text-lg text-white leading-tight">{p.name}</h3>
                   <p class="mt-2 text-sm text-[var(--color-text-muted)] line-clamp-2">{p.blurb[locale]}</p>
                   <div class="mt-4 flex items-baseline gap-1.5">
-                    {p.priceFrom && <span class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.from}</span>}
-                    <span class="font-display text-xl text-[var(--color-accent)] tabular-nums">{fmt(p.price)}</span>
-                    <span class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.currency}</span>
+                    {p.price != null ? (
+                      <>
+                        {p.priceFrom && <span class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.from}</span>}
+                        <span class="font-display text-xl text-[var(--color-accent)] tabular-nums">{fmt(p.price)}</span>
+                        <span class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.currency}</span>
+                      </>
+                    ) : (
+                      <span class="font-display text-base text-[var(--color-accent)]">{dict.shop.price_on_request}</span>
+                    )}
                   </div>
                 </div>
               </a>
