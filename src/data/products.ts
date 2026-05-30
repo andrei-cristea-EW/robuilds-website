@@ -84,6 +84,7 @@ export const PRODUCTS: Product[] = [
   {
     slug: 'cutie-diferential-quick-change',
     name: 'Quick-Change Differential',
+    price: 190,
     status: 'available',
     category: 'parts-3d',
     images: ['/images/shop/qc-box-2', '/images/shop/qc-box-1'],
