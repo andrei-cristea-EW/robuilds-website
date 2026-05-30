@@ -3,103 +3,78 @@ import { t, type Locale } from '../i18n';
 import { SITE } from '../data/site';
 const { locale } = Astro.props as { locale: Locale };
 const dict = t(locale);
-const hasKey = !!SITE.web3formsKey;
+
+const channels = [
+  {
+    label: dict.contact.channels.email_label,
+    value: SITE.email,
+    href: `mailto:${SITE.email}`,
+    note: '',
+    icon: 'mail',
+    accent: 'border-[var(--color-border)] hover:border-[var(--color-accent)]',
+  },
+  {
+    label: dict.contact.channels.whatsapp_label,
+    value: SITE.phone,
+    href: SITE.whatsappUrl,
+    note: dict.contact.channels.whatsapp_note,
+    icon: 'whatsapp',
+    accent: 'border-[var(--color-border)] hover:border-[#25D366]',
+    external: true,
+  },
+  {
+    label: dict.contact.channels.phone_label,
+    value: SITE.phone,
+    href: `tel:${SITE.phoneDigits}`,
+    note: '',
+    icon: 'phone',
+    accent: 'border-[var(--color-border)] hover:border-[var(--color-accent)]',
+  },
+];
 ---
 <section id="partnership" class="relative bg-[var(--color-bg)] py-20 sm:py-28">
-  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-    <div class="reveal mb-10 sm:mb-12">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10 sm:mb-12 max-w-3xl">
       <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.contact.kicker}</p>
       <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.contact.title}</h2>
-      <p class="mt-5 text-base text-[var(--color-text)]/80">{dict.contact.body}</p>
+      <p class="mt-5 text-base sm:text-lg text-[var(--color-text)]/85">{dict.contact.body}</p>
     </div>
 
-    <form
-      data-contact-form
-      action={hasKey ? 'https://api.web3forms.com/submit' : `mailto:${SITE.email}`}
-      method="POST"
-      class="reveal grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
-      style="transition-delay: 100ms"
-    >
-      {hasKey && <input type="hidden" name="access_key" value={SITE.web3formsKey} />}
-      <input type="hidden" name="from_name" value="RO Builds website" />
-      <input type="text" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-      <label class="block">
-        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.name}</span>
-        <input required type="text" name="name" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors" />
-      </label>
-      <label class="block">
-        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.email}</span>
-        <input required type="email" name="email" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors" />
-      </label>
-      <label class="block">
-        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.company}</span>
-        <input type="text" name="company" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors" />
-      </label>
-      <label class="block">
-        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.subject}</span>
-        <select name="subject" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors">
-          <option value={dict.contact.form.subject_partnership}>{dict.contact.form.subject_partnership}</option>
-          <option value={dict.contact.form.subject_order}>{dict.contact.form.subject_order}</option>
-          <option value={dict.contact.form.subject_other}>{dict.contact.form.subject_other}</option>
-        </select>
-      </label>
-      <label class="block sm:col-span-2">
-        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.message}</span>
-        <textarea required name="message" rows="5" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors resize-y"></textarea>
-      </label>
-      <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-2">
-        <p class="text-xs text-[var(--color-text-muted)]">
-          {dict.contact.direct} <a class="text-[var(--color-accent)] hover:text-white transition-colors" href={`mailto:${SITE.email}`}>{SITE.email}</a> · <a class="text-[var(--color-accent)] hover:text-white transition-colors" href={`tel:${SITE.phoneDigits}`}>{SITE.phone}</a>
-        </p>
-        <button type="submit" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black hover:bg-white transition-colors rounded-sm">
-          <span data-submit-label>{dict.contact.form.submit}</span>
-        </button>
-      </div>
-      <p data-form-status class="sm:col-span-2 hidden text-sm"></p>
-    </form>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+      {channels.map((c, i) => (
+        <a
+          href={c.href}
+          target={c.external ? '_blank' : undefined}
+          rel={c.external ? 'noopener noreferrer' : undefined}
+          class={`reveal group bg-[var(--color-bg-elevated)] border ${c.accent} rounded-sm p-6 sm:p-8 flex flex-col transition-colors`}
+          style={`transition-delay: ${i * 80}ms`}
+        >
+          <div class="mb-5 w-12 h-12 flex items-center justify-center bg-[var(--color-bg-card)] rounded-sm text-[var(--color-accent)] group-hover:scale-110 transition-transform">
+            {c.icon === 'mail' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="1"/>
+                <path d="M3 7l9 6 9-6"/>
+              </svg>
+            )}
+            {c.icon === 'whatsapp' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M17.5 14.4c-.3-.1-1.7-.8-1.9-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.4-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.1.3-.3.4-.5.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5 0-.1-.7-1.7-1-2.3-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.5s1.1 2.9 1.2 3.1c.1.2 2.1 3.2 5 4.5.7.3 1.3.5 1.7.6.7.2 1.4.2 1.9.1.6-.1 1.7-.7 1.9-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.4.8 3.1 1.2 4.9 1.2 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
+              </svg>
+            )}
+            {c.icon === 'phone' && (
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" aria-hidden="true">
+                <path d="M5 4h4l2 5-3 2c1 2.5 3 4.5 5.5 5.5l2-3 5 2v4c0 .5-.5 1-1 1C9 20 4 15 4 5c0-.5.5-1 1-1z"/>
+              </svg>
+            )}
+          </div>
+          <p class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)] mb-2">{c.label}</p>
+          <p class="font-display text-lg sm:text-xl text-white break-all">{c.value}</p>
+          {c.note && <p class="mt-2 text-sm text-[var(--color-text-muted)]">{c.note}</p>}
+          <span class="mt-auto pt-4 inline-flex items-center text-sm font-semibold text-[var(--color-accent)] group-hover:gap-2 transition-all">
+            {locale === 'ro' ? 'Deschide' : 'Open'} <span class="ml-1.5 group-hover:ml-2 transition-all">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
   </div>
 </section>
-
-<script is:inline define:vars={{ hasKey, email: SITE.email, msg: { sending: dict.contact.form.sending, success: dict.contact.form.success, error: dict.contact.form.error, submit: dict.contact.form.submit } }}>
-  document.querySelectorAll('[data-contact-form]').forEach((form) => {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const status = form.querySelector('[data-form-status]');
-      const label = form.querySelector('[data-submit-label]');
-      const btn = form.querySelector('button[type="submit"]');
-
-      if (!hasKey) {
-        // Build a mailto: URL from form values
-        const data = new FormData(form);
-        const name = (data.get('name') || '').toString();
-        const fromEmail = (data.get('email') || '').toString();
-        const company = (data.get('company') || '').toString();
-        const subject = (data.get('subject') || '').toString();
-        const message = (data.get('message') || '').toString();
-        const body = `${message}\n\n---\n${name}${company ? ' · ' + company : ''}\n${fromEmail}`;
-        window.location.href = `mailto:${email}?subject=${encodeURIComponent('[RO Builds] ' + subject)}&body=${encodeURIComponent(body)}`;
-        return;
-      }
-
-      label.textContent = msg.sending;
-      btn.disabled = true;
-      try {
-        const data = new FormData(form);
-        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
-        if (!res.ok) throw new Error('bad response');
-        status.classList.remove('hidden');
-        status.classList.add('text-[var(--color-accent)]');
-        status.textContent = msg.success;
-        form.reset();
-      } catch {
-        status.classList.remove('hidden');
-        status.classList.add('text-[var(--color-red)]');
-        status.textContent = msg.error;
-      } finally {
-        label.textContent = msg.submit;
-        btn.disabled = false;
-      }
-    });
-  });
-</script>

@@ -18,14 +18,14 @@
     "eyebrow": "Pro drift team · România",
     "title_1": "RO BUILDS",
     "title_2": "MOTORSPORT",
-    "tagline": "Echipă profesionistă de drift. Locul 3 în RoDrift PRO 2026.",
+    "tagline": "Echipă profesionistă de drift. Cel mai mare canal de YouTube despre drift din România.",
     "cta_primary": "Devino partener",
     "cta_secondary": "Vezi pe YouTube"
   },
   "about": {
     "kicker": "Despre echipă",
     "title": "Cucerim driftul românesc, cu pasiune.",
-    "body": "Suntem o echipă pasionată de motorsport, intrată în al patrulea sezon în Campionatul Național de Drift (RoDrift). În 2024 am fost promovați în clasa PRO. În 2025 am terminat sezonul pe locul 7. În 2026 luptăm pentru titlu — momentan suntem pe locul 3. Construim mașinile cu mâna noastră, filmăm tot procesul și avem cel mai mare canal de drift din România.",
+    "body": "Suntem o echipă pasionată de motorsport, intrată în al patrulea sezon în Campionatul Național de Drift (RoDrift). În 2024 am fost promovați în clasa PRO. În 2025 am terminat sezonul pe locul 7. În 2026 luptăm pentru titlu. Construim mașinile cu mâna noastră, filmăm tot procesul și avem cel mai mare canal de YouTube despre drift din România.",
     "stats": {
       "season": "al 4-lea sezon",
       "class": "Clasa PRO"
@@ -33,24 +33,19 @@
   },
   "channel": {
     "kicker": "Canalul nostru",
-    "title": "Cel mai mare canal de drift din România.",
+    "title": "Cel mai mare canal de YouTube despre drift din România.",
     "body": "Filmăm fiecare etapă, fiecare antrenament, fiecare reparație în garaj. Vlog-uri săptămânale, on-board cam, behind the scenes — totul în spatele unei comunități care crește lună de lună.",
     "cta": "Vezi pe YouTube",
     "metrics": {
       "yt_subs": "Abonați YouTube",
-      "ig_followers": "Followers Instagram"
+      "ig_followers": "Followers Instagram",
+      "tt_followers": "Followers TikTok"
     }
-  },
-  "reel": {
-    "kicker": "Pe pistă",
-    "title": "Aşa arată o cursă de drift.",
-    "body": "Cameră on-board, urmărire la limită — un fragment dintr-un weekend RoDrift PRO.",
-    "play_label": "Redă clipul"
   },
   "car": {
     "kicker": "Mașina de competiție",
     "title": "BMW E46 · 4.4 V8 Turbo",
-    "body": "Construită manual din zero. Motor BMW M62 4.4 V8 cu turbo. Putere maximă: 600 HP. Cuplu: 800 Nm. Una dintre cele mai spectaculoase mașini din campionat.",
+    "body": "Construită integral de noi. Una dintre cele mai spectaculoase mașini din campionat.",
     "specs": {
       "engine": "Motor",
       "engine_v": "BMW M62 4.4 V8 Turbo",
@@ -142,23 +137,14 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Scrie-ne.",
-    "body": "Pentru parteneriate, comenzi din magazin sau orice întrebare despre echipă.",
-    "form": {
-      "name": "Nume",
-      "email": "Email",
-      "company": "Companie (opțional)",
-      "subject": "Subiect",
-      "subject_partnership": "Parteneriat",
-      "subject_order": "Comandă magazin",
-      "subject_other": "Altceva",
-      "message": "Mesaj",
-      "submit": "Trimite mesajul",
-      "sending": "Se trimite…",
-      "success": "Mulțumim! Revenim cât putem de repede.",
-      "error": "Ceva a mers prost. Trimite-ne direct un email."
-    },
-    "direct": "Sau direct:"
+    "title": "Hai să vorbim.",
+    "body": "Pentru parteneriate, comenzi sau orice altă întrebare — scrie-ne direct pe canalul care ţi se potrivește.",
+    "channels": {
+      "email_label": "Email",
+      "phone_label": "Telefon",
+      "whatsapp_label": "WhatsApp",
+      "whatsapp_note": "Mesaj rapid, răspuns rapid."
+    }
   },
   "partnerships": {
     "title": "Parteneriate",
@@ -167,7 +153,7 @@
     "offers_title": "Ce oferim partenerilor",
     "offers": {
       "car": {
-        "title": "Livrea mașinii de curse",
+        "title": "Branding pe mașina de curse",
         "body": "Sigla ta pe BMW-ul de competiție — văzut de mii de spectatori la fiecare etapă și de zeci de mii de privitori online."
       },
       "suit": {
@@ -196,12 +182,12 @@
     "sold_out": "Stoc epuizat",
     "from": "de la",
     "currency": "lei",
-    "order_cta": "Contactează-ne pentru comandă",
+    "order_cta": "Comandă pe WhatsApp",
     "back": "← Înapoi la magazin",
     "product_label": "Produs"
   },
   "footer": {
-    "tagline": "Pro drift team din România.",
+    "tagline": "Construim. Conducem. Filmăm. Drift profesionist din România, gata de Europa.",
     "socials": "Social",
     "links": "Legături",
     "contact_label": "Contact",

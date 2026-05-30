@@ -5,9 +5,9 @@ export const SITE = {
   email: 'robuilds.motorsport@gmail.com',
   phone: '+40 741 220 600',
   phoneDigits: '+40741220600',
+  whatsappDigits: '40741220600',
+  whatsappUrl: 'https://wa.me/40741220600',
   form230Url: 'https://formular230.ro/asociatia-club-sportiv-rbuilds-motorsport',
-  // Web3Forms public access key. Empty until provided — form falls back to mailto.
-  web3formsKey: '',
 };
 
 export const SOCIALS = [
@@ -75,6 +75,7 @@ export const REACH = [
   { key: 'attendance', value: 11.2, unit: 'K' },
   { key: 'yt_subs', value: 6.3, unit: 'K' },
   { key: 'ig_followers', value: 3.7, unit: 'K' },
+  { key: 'tt_followers', value: 1.2, unit: 'K' },
 ] as const;
 
 export const RESULTS_ORDER = ['y2024', 'y2025', 'y2026', 'future'] as const;

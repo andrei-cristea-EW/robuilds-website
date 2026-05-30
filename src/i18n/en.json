@@ -18,14 +18,14 @@
     "eyebrow": "Pro drift team · Romania",
     "title_1": "RO BUILDS",
     "title_2": "MOTORSPORT",
-    "tagline": "Professional drift team. P3 in RoDrift PRO 2026.",
+    "tagline": "Pro drift team. Romania's biggest drift YouTube channel.",
     "cta_primary": "Become a partner",
     "cta_secondary": "Watch on YouTube"
   },
   "about": {
     "kicker": "About",
     "title": "Conquering Romanian drift, with passion.",
-    "body": "We're a motorsport-obsessed team entering our fourth season in the Romanian National Drift Championship (RoDrift). Promoted to the PRO class in 2024. P7 in 2025. Fighting for the title in 2026 — currently P3. We hand-build our cars, film the whole process and run Romania's biggest drift YouTube channel.",
+    "body": "We're a motorsport-obsessed team entering our fourth season in the Romanian National Drift Championship (RoDrift). Promoted to the PRO class in 2024. P7 in 2025. Fighting for the title in 2026. We hand-build our cars, film the whole process and run Romania's biggest drift YouTube channel.",
     "stats": {
       "season": "4th season",
       "class": "PRO class"
@@ -38,19 +38,14 @@
     "cta": "Watch on YouTube",
     "metrics": {
       "yt_subs": "YouTube subscribers",
-      "ig_followers": "Instagram followers"
+      "ig_followers": "Instagram followers",
+      "tt_followers": "TikTok followers"
     }
-  },
-  "reel": {
-    "kicker": "On track",
-    "title": "What a drift run looks like.",
-    "body": "On-board camera, chasing at the limit — a slice from a RoDrift PRO weekend.",
-    "play_label": "Play clip"
   },
   "car": {
     "kicker": "Race car",
     "title": "BMW E46 · 4.4 V8 Turbo",
-    "body": "Hand-built from scratch. BMW M62 4.4 V8 with turbocharger. 600 HP. 800 Nm of torque. One of the most spectacular cars in the championship.",
+    "body": "Built entirely by us. One of the most spectacular cars in the championship.",
     "specs": {
       "engine": "Engine",
       "engine_v": "BMW M62 4.4 V8 Turbo",
@@ -142,23 +137,14 @@
   },
   "contact": {
     "kicker": "Contact",
-    "title": "Get in touch.",
-    "body": "For partnerships, shop orders or anything about the team.",
-    "form": {
-      "name": "Name",
-      "email": "Email",
-      "company": "Company (optional)",
-      "subject": "Subject",
-      "subject_partnership": "Partnership",
-      "subject_order": "Shop order",
-      "subject_other": "Other",
-      "message": "Message",
-      "submit": "Send message",
-      "sending": "Sending…",
-      "success": "Thanks! We'll get back to you soon.",
-      "error": "Something went wrong. Email us directly."
-    },
-    "direct": "Or directly:"
+    "title": "Let's talk.",
+    "body": "Partnerships, orders, or anything else — reach us on whichever channel works for you.",
+    "channels": {
+      "email_label": "Email",
+      "phone_label": "Phone",
+      "whatsapp_label": "WhatsApp",
+      "whatsapp_note": "Fast message, fast reply."
+    }
   },
   "partnerships": {
     "title": "Partnerships",
@@ -167,7 +153,7 @@
     "offers_title": "What partners get",
     "offers": {
       "car": {
-        "title": "Race car livery",
+        "title": "Race car branding",
         "body": "Your logo on the competition BMW — seen by thousands of spectators at every round and tens of thousands of viewers online."
       },
       "suit": {
@@ -196,12 +182,12 @@
     "sold_out": "Sold out",
     "from": "from",
     "currency": "RON",
-    "order_cta": "Contact us to order",
+    "order_cta": "Order on WhatsApp",
     "back": "← Back to shop",
     "product_label": "Product"
   },
   "footer": {
-    "tagline": "Pro drift team from Romania.",
+    "tagline": "We build. We drive. We film. Pro drift out of Romania — heading to Europe next.",
     "socials": "Social",
     "links": "Links",
     "contact_label": "Contact",

@@ -9,13 +9,11 @@ const stats = [
 ---
 <section id="about" class="relative bg-[var(--color-bg)] py-20 sm:py-28">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-start">
-      <div class="lg:col-span-5 reveal">
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+      <div class="lg:col-span-6 reveal">
         <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.about.kicker}</p>
         <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.about.title}</h2>
-      </div>
-      <div class="lg:col-span-7 reveal" style="transition-delay: 100ms">
-        <p class="text-base sm:text-lg text-[var(--color-text)]/85 leading-relaxed">{dict.about.body}</p>
+        <p class="mt-6 text-base sm:text-lg text-[var(--color-text)]/85 leading-relaxed">{dict.about.body}</p>
         <div class="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
           {stats.map((s) => (
             <div class="border-l-2 border-[var(--color-accent)] pl-3 sm:pl-4">
@@ -24,6 +22,33 @@ const stats = [
           ))}
         </div>
       </div>
+
+      <div class="lg:col-span-6 reveal" style="transition-delay: 120ms">
+        <div class="relative aspect-video overflow-hidden rounded-sm bg-black border border-[var(--color-border)]">
+          <video
+            class="w-full h-full object-cover"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/video/chasing-extreme-poster.jpg"
+            data-about-video
+          >
+            <source src="/video/chasing-extreme.webm" type="video/webm" />
+            <source src="/video/chasing-extreme.mp4" type="video/mp4" />
+          </video>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent pointer-events-none"></div>
+        </div>
+      </div>
     </div>
   </div>
+
+  <script is:inline>
+    const v = document.querySelector('[data-about-video]');
+    if (v && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      v.removeAttribute('autoplay');
+      v.pause();
+    }
+  </script>
 </section>
