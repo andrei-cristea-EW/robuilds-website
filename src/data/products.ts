@@ -63,7 +63,7 @@ export const PRODUCTS: Product[] = [
     priceFrom: true,
     status: 'available',
     category: 'tail-lights',
-    images: ['/images/shop/tail-f22-2', '/images/shop/tail-f22-6', '/images/shop/tail-f22-7', '/images/shop/tail-f22-1', '/images/shop/tail-f22-3', '/images/shop/tail-f22-4', '/images/shop/tail-f22-5'],
+    images: ['/images/shop/tail-f22-6', '/images/shop/tail-f22-2', '/images/shop/tail-f22-7', '/images/shop/tail-f22-1', '/images/shop/tail-f22-3', '/images/shop/tail-f22-4', '/images/shop/tail-f22-5'],
     blurb: {
       ro: 'Stopuri printate 3D pentru BMW F22. Montaj rapid, aspect agresiv.',
       en: '3D-printed tail-lights for the BMW F22. Quick fit, aggressive look.',
