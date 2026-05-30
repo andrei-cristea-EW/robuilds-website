@@ -1,24 +1,17 @@
 ---
 import { PARTNERS } from '../data/site';
+// Duplicate the list once so the single animated track can loop seamlessly
+// at -50% without two independent animations drifting out of sync.
+const loop = [...PARTNERS, ...PARTNERS];
 ---
 <section class="bg-black py-6 sm:py-8 overflow-hidden border-y border-[var(--color-border)]">
   <div class="marquee">
     <div class="marquee-track">
-      {PARTNERS.map((p) => (
+      {loop.map((p, i) => (
         <img
           src={p.logo}
-          alt={p.name}
-          class="h-10 sm:h-14 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
-          loading="lazy"
-          decoding="async"
-        />
-      ))}
-    </div>
-    <div class="marquee-track" aria-hidden="true">
-      {PARTNERS.map((p) => (
-        <img
-          src={p.logo}
-          alt=""
+          alt={i < PARTNERS.length ? p.name : ''}
+          aria-hidden={i < PARTNERS.length ? undefined : 'true'}
           class="h-10 sm:h-14 w-auto object-contain grayscale opacity-70 hover:grayscale-0 hover:opacity-100 transition-all duration-500"
           loading="lazy"
           decoding="async"
