@@ -1,89 +1,77 @@
+export type Variant = { label: { ro: string; en: string }; price: number };
+
 export type Product = {
   slug: string;
   name: string;
-  price: number;
-  priceFrom?: boolean;
+  price: number;          // "from" price = min variant, or the single price
+  priceFrom?: boolean;    // render "de la / from"
   status: 'available' | 'sold_out';
-  category: 'apparel' | 'parts';
-  // First image is hero; rest are gallery.
-  images: string[];
+  category: string;       // CATEGORIES key
+  images: string[];       // base paths, NO extension; [0] = hero, rest = gallery
   blurb: { ro: string; en: string };
+  variants?: Variant[];
 };
+
+export const CATEGORIES = [
+  {
+    key: 'tail-lights',
+    title: { ro: 'Stopuri 3D', en: '3D-printed tail-lights' },
+    blurb: {
+      ro: 'Făcute de noi. Mai ieftine și mai arătoase decât stopurile second-hand, ușor și rapid de montat, mereu pe stoc.',
+      en: 'Made by us. Cheaper and better-looking than second-hand tail-lights, quick and easy to fit, always in stock.',
+    },
+  },
+] as const;
+
+const WITH_KIT = { ro: 'Cu kit lumini', en: 'With light kit' };
+const NO_LIGHTS = { ro: 'Fără lumini', en: 'Without lights' };
 
 export const PRODUCTS: Product[] = [
   {
-    slug: 'tokyo-sunset-tee',
-    name: 'Tokyo Sunset',
-    price: 167,
-    status: 'available',
-    category: 'apparel',
-    images: ['/images/drift-cone-hit-smoke.webp'],
-    blurb: {
-      ro: 'Tricou ediție limitată. Inspirat de nopțile pe pistă.',
-      en: 'Limited-edition tee. Inspired by late nights on track.',
-    },
-  },
-  {
-    slug: 'signature-tee',
-    name: 'Signature',
-    price: 155,
-    status: 'available',
-    category: 'apparel',
-    images: ['/images/drift-action-pakelo-track.webp'],
-    blurb: {
-      ro: 'Tricoul oficial al echipei. Bumbac greu, print rezistent.',
-      en: 'Official team tee. Heavy cotton, durable print.',
-    },
-  },
-  {
-    slug: 'sapca-robuilds-team',
-    name: 'Șapcă RoBuilds Team',
-    price: 120,
-    status: 'sold_out',
-    category: 'apparel',
-    images: ['/images/team-paddock-group.webp'],
-    blurb: {
-      ro: 'Șapcă cu broderie echipă. Stoc epuizat — revenim cu noul lot.',
-      en: 'Embroidered team cap. Sold out — restocking soon.',
-    },
-  },
-  {
-    slug: 'kit-rigidizare-punte-spate-e46',
-    name: 'Kit rigidizare punte spate BMW E46',
-    price: 420,
-    status: 'sold_out',
-    category: 'parts',
-    images: ['/images/bmw-e46-night-rear.webp'],
-    blurb: {
-      ro: 'Kit complet pentru rigidizarea punții spate. Testat la curse.',
-      en: 'Complete rear subframe reinforcement kit. Race-tested.',
-    },
-  },
-  {
-    slug: 'stopuri-drift-e46-coupe',
-    name: 'Stopuri pentru drift BMW E46 Coupe',
-    price: 340,
+    slug: 'stopuri-3d-bmw-e46',
+    name: 'Stopuri 3D BMW E46',
+    price: 290,
     priceFrom: true,
     status: 'available',
-    category: 'parts',
-    images: ['/images/bmw-e46-night-rear.webp'],
+    category: 'tail-lights',
+    images: ['/images/shop/tail-e46-2', '/images/shop/tail-e46-1', '/images/shop/tail-e46-3', '/images/shop/tail-e46-4'],
     blurb: {
-      ro: 'Stopuri dedicate pentru drift, cu efect de "smoke trail". Lumini LED puternice.',
-      en: 'Drift-spec tail lights with strong LED output for smoke-trail visibility.',
+      ro: 'Stopuri printate 3D pentru BMW E46 Coupé. Montaj rapid, aspect agresiv.',
+      en: '3D-printed tail-lights for the BMW E46 Coupé. Quick fit, aggressive look.',
+    },
+    variants: [
+      { label: WITH_KIT, price: 420 },
+      { label: NO_LIGHTS, price: 290 },
+    ],
+  },
+  {
+    slug: 'stopuri-3d-bmw-e36',
+    name: 'Stopuri 3D BMW E36',
+    price: 290,
+    status: 'available',
+    category: 'tail-lights',
+    images: ['/images/shop/tail-e36-1', '/images/shop/tail-e36-2', '/images/shop/tail-e36-3', '/images/shop/tail-e36-4'],
+    blurb: {
+      ro: 'Stopuri printate 3D pentru BMW E36. Montaj rapid, aspect agresiv.',
+      en: '3D-printed tail-lights for the BMW E36. Quick fit, aggressive look.',
     },
   },
   {
-    slug: 'frana-de-mana-universala',
-    name: 'Frână de mână universală',
-    price: 420,
+    slug: 'stopuri-3d-bmw-f22',
+    name: 'Stopuri 3D BMW F22',
+    price: 490,
     priceFrom: true,
     status: 'available',
-    category: 'parts',
-    images: ['/images/bmw-e46-night-side.webp'],
+    category: 'tail-lights',
+    images: ['/images/shop/tail-f22-2', '/images/shop/tail-f22-6', '/images/shop/tail-f22-7', '/images/shop/tail-f22-1', '/images/shop/tail-f22-3', '/images/shop/tail-f22-4', '/images/shop/tail-f22-5'],
     blurb: {
-      ro: 'Frână de mână hidraulică universală. Montaj rapid, fiabilitate de competiție.',
-      en: 'Universal hydraulic handbrake. Quick install, race-grade reliability.',
+      ro: 'Stopuri printate 3D pentru BMW F22. Montaj rapid, aspect agresiv.',
+      en: '3D-printed tail-lights for the BMW F22. Quick fit, aggressive look.',
     },
+    variants: [
+      { label: WITH_KIT, price: 550 },
+      { label: NO_LIGHTS, price: 490 },
+    ],
   },
 ];
 
