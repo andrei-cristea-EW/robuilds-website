@@ -38,7 +38,7 @@ const NO_LIGHTS = { ro: 'Fără lumini', en: 'Without lights' };
 export const PRODUCTS: Product[] = [
   {
     slug: 'stopuri-3d-bmw-e46',
-    name: 'Stopuri 3D BMW E46',
+    name: { ro: 'Stopuri 3D BMW E46', en: '3D Tail-Lights BMW E46' },
     price: 290,
     priceFrom: true,
     status: 'available',
@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'stopuri-3d-bmw-e36',
-    name: 'Stopuri 3D BMW E36',
+    name: { ro: 'Stopuri 3D BMW E36', en: '3D Tail-Lights BMW E36' },
     price: 290,
     status: 'available',
     category: 'tail-lights',
@@ -67,7 +67,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'stopuri-3d-bmw-f22',
-    name: 'Stopuri 3D BMW F22',
+    name: { ro: 'Stopuri 3D BMW F22', en: '3D Tail-Lights BMW F22' },
     price: 490,
     priceFrom: true,
     status: 'available',
@@ -96,7 +96,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     slug: 'kit-rigidizare-punte-spate-e46',
-    name: 'Kit Rigidizare Punte Spate — BMW E46',
+    name: { ro: 'Kit Rigidizare Punte Spate — BMW E46', en: 'Rear Subframe Reinforcement Kit — BMW E46' },
     price: 390,
     status: 'available',
     category: 'parts-3d',
