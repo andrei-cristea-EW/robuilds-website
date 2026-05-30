@@ -1,21 +1,35 @@
 ---
-import { t, localePath, type Locale } from '../i18n';
+import { t, type Locale } from '../i18n';
 import { SOCIALS } from '../data/site';
 const { locale } = Astro.props as { locale: Locale };
 const dict = t(locale);
 const yt = SOCIALS.find((s) => s.key === 'youtube')!;
+
+const slides = [
+  { webp: '/images/drift-cone-hit-smoke.webp', jpg: '/images/drift-cone-hit-smoke.jpg', pos: 'center' },
+  { webp: '/images/drift-panning-redrift-26.webp', jpg: '/images/drift-panning-redrift-26.jpg', pos: 'center' },
+  { webp: '/images/drift-action-pakelo-track.webp', jpg: '/images/drift-action-pakelo-track.jpg', pos: 'center' },
+  { webp: '/images/bmw-e46-night-side.webp', jpg: '/images/bmw-e46-night-side.jpg', pos: 'center 72%' },
+];
 ---
 <section id="hero" class="relative isolate min-h-[100svh] flex flex-col justify-end overflow-hidden bg-black">
-  <picture class="absolute inset-0 -z-10">
-    <source srcset="/images/drift-cone-hit-smoke.webp" type="image/webp" />
-    <img
-      src="/images/drift-cone-hit-smoke.jpg"
-      alt=""
-      class="hero-zoom w-full h-full object-cover object-center opacity-80"
-      fetchpriority="high"
-      decoding="async"
-    />
-  </picture>
+  <div class="hero-carousel -z-10" aria-hidden="true">
+    {slides.map((s, i) => (
+      <div class="hero-slide">
+        <picture>
+          <source srcset={s.webp} type="image/webp" />
+          <img
+            src={s.jpg}
+            alt=""
+            style={`object-position: ${s.pos};`}
+            fetchpriority={i === 0 ? 'high' : 'auto'}
+            loading={i === 0 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </picture>
+      </div>
+    ))}
+  </div>
   <div class="absolute inset-0 -z-10 bg-gradient-to-b from-black/40 via-black/30 to-[var(--color-bg)]"></div>
   <div class="absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_top,transparent_30%,rgba(0,0,0,0.6))]"></div>
 
@@ -25,9 +39,9 @@ const yt = SOCIALS.find((s) => s.key === 'youtube')!;
         <span class="inline-block w-8 h-px bg-[var(--color-accent)]"></span>
         {dict.hero.eyebrow}
       </p>
-      <h1 class="font-display leading-[0.85] tracking-tight text-white">
-        <span class="block text-[clamp(2.75rem,10vw,8rem)]">{dict.hero.title_1}</span>
-        <span class="block text-[clamp(2.75rem,10vw,8rem)] text-[var(--color-accent)]">{dict.hero.title_2}</span>
+      <h1 class="leading-[0.85] tracking-tight text-white">
+        <span class="font-brand block text-[clamp(2.75rem,10vw,8rem)]">{dict.hero.title_1}</span>
+        <span class="font-brand block text-[clamp(2.75rem,10vw,8rem)] text-[var(--color-accent)]">{dict.hero.title_2}</span>
       </h1>
       <p class="mt-6 max-w-xl text-base sm:text-lg text-[var(--color-text)]/85">{dict.hero.tagline}</p>
       <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">

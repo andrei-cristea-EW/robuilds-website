@@ -6,9 +6,7 @@ const specs = [
   { label: dict.car.specs.engine, value: dict.car.specs.engine_v },
   { label: dict.car.specs.power, value: dict.car.specs.power_v },
   { label: dict.car.specs.torque, value: dict.car.specs.torque_v },
-  { label: dict.car.specs.drive, value: dict.car.specs.drive_v },
   { label: dict.car.specs.chassis, value: dict.car.specs.chassis_v },
-  { label: dict.car.specs.livery, value: dict.car.specs.livery_v },
 ];
 const gallery = [
   { webp: '/images/bmw-e46-night-rear.webp', jpg: '/images/bmw-e46-night-rear.jpg' },
@@ -27,7 +25,7 @@ const gallery = [
       <figure class="reveal lg:col-span-8 relative aspect-[16/10] overflow-hidden rounded-sm bg-black">
         <picture>
           <source srcset="/images/bmw-e46-night-side.webp" type="image/webp" />
-          <img src="/images/bmw-e46-night-side.jpg" alt={dict.car.title} class="hero-zoom w-full h-full object-cover" loading="lazy" decoding="async" />
+          <img src="/images/bmw-e46-night-side.jpg" alt={dict.car.title} class="hero-zoom w-full h-full object-cover" style="object-position: center 72%" loading="lazy" decoding="async" />
         </picture>
         <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
       </figure>

@@ -2,7 +2,7 @@
   "locale": "ro",
   "meta": {
     "title": "RO Builds Motorsport — Echipă profesionistă de drift",
-    "description": "Echipă de drift din România, locul 3 în RoDrift PRO 2026, BMW E46 4.4 V8 Turbo, 600 cp. Vezi echipa, mașina, parteneri și magazin."
+    "description": "Echipă de drift din România, locul 3 în RoDrift PRO 2026, BMW E46 4.4 V8 Turbo, 600 HP. Vezi echipa, mașina, parteneri și magazin."
   },
   "nav": {
     "team": "Echipa",
@@ -22,38 +22,44 @@
     "cta_primary": "Devino partener",
     "cta_secondary": "Vezi pe YouTube"
   },
-  "status": {
-    "rank": "P3 RoDrift PRO 2026",
-    "engine": "BMW E46 · 4.4 V8 Turbo",
-    "power": "600 cp · 800 Nm"
-  },
   "about": {
     "kicker": "Despre echipă",
-    "title": "Construim drift-ul românesc, tur cu tur.",
+    "title": "Cucerim driftul românesc, cu pasiune.",
     "body": "Suntem o echipă pasionată de motorsport, intrată în al patrulea sezon în Campionatul Național de Drift (RoDrift). În 2024 am fost promovați în clasa PRO. În 2025 am terminat sezonul pe locul 7. În 2026 luptăm pentru titlu — momentan suntem pe locul 3. Construim mașinile cu mâna noastră, filmăm tot procesul și avem cel mai mare canal de drift din România.",
     "stats": {
       "season": "al 4-lea sezon",
-      "class": "Clasa PRO",
-      "rank": "P3 / 2026"
+      "class": "Clasa PRO"
     }
+  },
+  "channel": {
+    "kicker": "Canalul nostru",
+    "title": "Cel mai mare canal de drift din România.",
+    "body": "Filmăm fiecare etapă, fiecare antrenament, fiecare reparație în garaj. Vlog-uri săptămânale, on-board cam, behind the scenes — totul în spatele unei comunități care crește lună de lună.",
+    "cta": "Vezi pe YouTube",
+    "metrics": {
+      "yt_subs": "Abonați YouTube",
+      "ig_followers": "Followers Instagram"
+    }
+  },
+  "reel": {
+    "kicker": "Pe pistă",
+    "title": "Aşa arată o cursă de drift.",
+    "body": "Cameră on-board, urmărire la limită — un fragment dintr-un weekend RoDrift PRO.",
+    "play_label": "Redă clipul"
   },
   "car": {
     "kicker": "Mașina de competiție",
     "title": "BMW E46 · 4.4 V8 Turbo",
-    "body": "Construită manual din zero. Motor BMW M62 4.4 V8 cu turbo. Putere maximă: 600 cp la roți. Cuplu: 800 Nm. Una dintre cele mai spectaculoase mașini din campionat.",
+    "body": "Construită manual din zero. Motor BMW M62 4.4 V8 cu turbo. Putere maximă: 600 HP. Cuplu: 800 Nm. Una dintre cele mai spectaculoase mașini din campionat.",
     "specs": {
       "engine": "Motor",
       "engine_v": "BMW M62 4.4 V8 Turbo",
       "power": "Putere",
-      "power_v": "600 cp la roți",
+      "power_v": "600 HP",
       "torque": "Cuplu",
       "torque_v": "800 Nm",
-      "drive": "Tracțiune",
-      "drive_v": "Spate · diferențial blocat",
       "chassis": "Șasiu",
-      "chassis_v": "BMW E46 Coupé",
-      "livery": "Livrea",
-      "livery_v": "Verde · roșu · alb"
+      "chassis_v": "BMW E46 Coupé"
     }
   },
   "team": {
@@ -69,7 +75,7 @@
         "role": "Crew chief · Pilot STREET"
       },
       "alex": {
-        "name": "Alexandru Popescu",
+        "name": "Alex Popescu",
         "role": "Specialist mecanic"
       },
       "radu": {
@@ -84,12 +90,13 @@
     "items": {
       "y2024": { "year": "2024", "label": "Promovați în clasa PRO" },
       "y2025": { "year": "2025", "label": "Locul 7 în RoDrift PRO" },
-      "y2026": { "year": "2026", "label": "Locul 3 — sezon în curs" }
+      "y2026": { "year": "2026", "label": "Locul 3 — sezon în curs" },
+      "future": { "year": "Următorul nivel", "label": "Drift Masters European Championship" }
     }
   },
   "reach": {
     "kicker": "Audiență",
-    "title": "Cea mai urmărită echipă de drift din România.",
+    "title": "Audiență RoDrift.",
     "body": "Numere agregate din sezonul RoDrift 2023 plus social media live. Drifting-ul românesc crește — și noi creștem cu el.",
     "metrics": {
       "unique": "Audiență unică totală",
@@ -111,20 +118,6 @@
     "kicker": "Parteneri",
     "title": "Cu ei mergem mai departe.",
     "cta": "Vezi ce oferim partenerilor →"
-  },
-  "goals": {
-    "kicker": "Obiective",
-    "title": "Două ținte clare.",
-    "items": {
-      "national": {
-        "title": "Câștigăm campionatul național",
-        "body": "Suntem pe locul 3 în 2026. Următorul pas: titlul de campion RoDrift PRO."
-      },
-      "international": {
-        "title": "Mergem internațional",
-        "body": "Pregătim debutul în Drift Masters European Championship — cea mai mare competiție de drift din Europa."
-      }
-    }
   },
   "support": {
     "kicker": "Susține-ne",

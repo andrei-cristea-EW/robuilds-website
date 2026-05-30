@@ -5,7 +5,6 @@ const dict = t(locale);
 const stats = [
   { value: dict.about.stats.season, key: 'season' },
   { value: dict.about.stats.class, key: 'class' },
-  { value: dict.about.stats.rank, key: 'rank' },
 ];
 ---
 <section id="about" class="relative bg-[var(--color-bg)] py-20 sm:py-28">
@@ -17,7 +16,7 @@ const stats = [
       </div>
       <div class="lg:col-span-7 reveal" style="transition-delay: 100ms">
         <p class="text-base sm:text-lg text-[var(--color-text)]/85 leading-relaxed">{dict.about.body}</p>
-        <div class="mt-8 grid grid-cols-3 gap-4 sm:gap-6">
+        <div class="mt-8 grid grid-cols-2 gap-4 sm:gap-6">
           {stats.map((s) => (
             <div class="border-l-2 border-[var(--color-accent)] pl-3 sm:pl-4">
               <div class="font-display text-xl sm:text-3xl text-white">{s.value}</div>

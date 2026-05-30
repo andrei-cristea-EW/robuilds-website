@@ -16,19 +16,33 @@ const items = RESULTS_ORDER.map((k) => {
       <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.results.title}</h2>
     </div>
 
-    <ol class="relative grid md:grid-cols-3 gap-4 sm:gap-6">
-      {items.map((it, i) => (
-        <li class="reveal relative bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm p-6 sm:p-8 overflow-hidden group" style={`transition-delay: ${i * 100}ms`}>
-          <div class={`absolute top-0 left-0 h-1 w-full ${it.key === 'y2026' ? 'bg-[var(--color-accent)]' : 'bg-[var(--color-border)]'}`}></div>
-          <div class="font-display text-5xl sm:text-7xl text-white/90">{it.year}</div>
-          <p class={`mt-3 text-sm sm:text-base ${it.key === 'y2026' ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-muted)]'}`}>{it.label}</p>
-          {it.key === 'y2026' && (
-            <span class="absolute top-4 right-4 text-[10px] uppercase tracking-widest font-semibold bg-[var(--color-accent)] text-black px-2 py-0.5 rounded-sm">
-              {locale === 'ro' ? 'În curs' : 'Live'}
-            </span>
-          )}
-        </li>
-      ))}
+    <ol class="relative grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {items.map((it, i) => {
+        const isCurrent = it.key === 'y2026';
+        const isFuture = it.key === 'future';
+        return (
+          <li
+            class={`reveal relative bg-[var(--color-bg-card)] rounded-sm p-6 sm:p-8 overflow-hidden group ${isFuture ? 'border-2 border-dashed border-[var(--color-accent)]/50' : 'border border-[var(--color-border)]'}`}
+            style={`transition-delay: ${i * 100}ms`}
+          >
+            <div class={`absolute top-0 left-0 h-1 w-full ${isCurrent ? 'bg-[var(--color-accent)]' : isFuture ? 'bg-transparent' : 'bg-[var(--color-border)]'}`}></div>
+            <div class={`font-display leading-[0.95] ${isFuture ? 'text-xl sm:text-2xl text-[var(--color-accent)]' : 'text-5xl sm:text-7xl text-white/90'}`}>
+              {it.year}
+            </div>
+            <p class={`mt-3 text-sm sm:text-base ${isCurrent ? 'text-[var(--color-accent)]' : 'text-[var(--color-text-muted)]'}`}>{it.label}</p>
+            {isCurrent && (
+              <span class="absolute top-4 right-4 text-[10px] uppercase tracking-widest font-semibold bg-[var(--color-accent)] text-black px-2 py-0.5 rounded-sm">
+                {locale === 'ro' ? 'În curs' : 'Live'}
+              </span>
+            )}
+            {isFuture && (
+              <span class="absolute top-4 right-4 text-[10px] uppercase tracking-widest font-semibold border border-[var(--color-accent)]/60 text-[var(--color-accent)] px-2 py-0.5 rounded-sm">
+                {locale === 'ro' ? 'Țintă' : 'Goal'}
+              </span>
+            )}
+          </li>
+        );
+      })}
     </ol>
   </div>
 </section>

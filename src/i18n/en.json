@@ -22,38 +22,44 @@
     "cta_primary": "Become a partner",
     "cta_secondary": "Watch on YouTube"
   },
-  "status": {
-    "rank": "P3 RoDrift PRO 2026",
-    "engine": "BMW E46 · 4.4 V8 Turbo",
-    "power": "600 whp · 800 Nm"
-  },
   "about": {
     "kicker": "About",
-    "title": "Building Romanian drift, lap after lap.",
+    "title": "Conquering Romanian drift, with passion.",
     "body": "We're a motorsport-obsessed team entering our fourth season in the Romanian National Drift Championship (RoDrift). Promoted to the PRO class in 2024. P7 in 2025. Fighting for the title in 2026 — currently P3. We hand-build our cars, film the whole process and run Romania's biggest drift YouTube channel.",
     "stats": {
       "season": "4th season",
-      "class": "PRO class",
-      "rank": "P3 / 2026"
+      "class": "PRO class"
     }
+  },
+  "channel": {
+    "kicker": "Our channel",
+    "title": "Romania's biggest drift YouTube channel.",
+    "body": "We film every round, every practice, every garage night. Weekly vlogs, on-board cam, behind the scenes — all backed by a community growing month after month.",
+    "cta": "Watch on YouTube",
+    "metrics": {
+      "yt_subs": "YouTube subscribers",
+      "ig_followers": "Instagram followers"
+    }
+  },
+  "reel": {
+    "kicker": "On track",
+    "title": "What a drift run looks like.",
+    "body": "On-board camera, chasing at the limit — a slice from a RoDrift PRO weekend.",
+    "play_label": "Play clip"
   },
   "car": {
     "kicker": "Race car",
     "title": "BMW E46 · 4.4 V8 Turbo",
-    "body": "Hand-built from scratch. BMW M62 4.4 V8 with turbocharger. 600 wheel horsepower. 800 Nm of torque. One of the most spectacular cars in the championship.",
+    "body": "Hand-built from scratch. BMW M62 4.4 V8 with turbocharger. 600 HP. 800 Nm of torque. One of the most spectacular cars in the championship.",
     "specs": {
       "engine": "Engine",
       "engine_v": "BMW M62 4.4 V8 Turbo",
       "power": "Power",
-      "power_v": "600 whp",
+      "power_v": "600 HP",
       "torque": "Torque",
       "torque_v": "800 Nm",
-      "drive": "Drivetrain",
-      "drive_v": "RWD · locked diff",
       "chassis": "Chassis",
-      "chassis_v": "BMW E46 Coupé",
-      "livery": "Livery",
-      "livery_v": "Green · red · white"
+      "chassis_v": "BMW E46 Coupé"
     }
   },
   "team": {
@@ -69,7 +75,7 @@
         "role": "Crew chief · STREET driver"
       },
       "alex": {
-        "name": "Alexandru Popescu",
+        "name": "Alex Popescu",
         "role": "Mechanic specialist"
       },
       "radu": {
@@ -84,12 +90,13 @@
     "items": {
       "y2024": { "year": "2024", "label": "Promoted to PRO class" },
       "y2025": { "year": "2025", "label": "P7 in RoDrift PRO" },
-      "y2026": { "year": "2026", "label": "P3 — current season" }
+      "y2026": { "year": "2026", "label": "P3 — current season" },
+      "future": { "year": "Next level", "label": "Drift Masters European Championship" }
     }
   },
   "reach": {
     "kicker": "Reach",
-    "title": "Romania's most followed drift team.",
+    "title": "RoDrift audience.",
     "body": "Aggregate numbers from the 2023 RoDrift season plus live socials. Romanian drifting is growing — and we're growing with it.",
     "metrics": {
       "unique": "Total unique reach",
@@ -111,20 +118,6 @@
     "kicker": "Partners",
     "title": "We go further with them.",
     "cta": "See what we offer partners →"
-  },
-  "goals": {
-    "kicker": "Goals",
-    "title": "Two clear targets.",
-    "items": {
-      "national": {
-        "title": "Win the national championship",
-        "body": "P3 in 2026. Next step: the RoDrift PRO title."
-      },
-      "international": {
-        "title": "Go international",
-        "body": "Preparing our debut in the Drift Masters European Championship — Europe's biggest drift series."
-      }
-    }
   },
   "support": {
     "kicker": "Support us",

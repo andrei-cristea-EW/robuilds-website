@@ -2,19 +2,37 @@
 import { t, type Locale } from '../i18n';
 const { locale } = Astro.props as { locale: Locale };
 const dict = t(locale);
+
+const fanImages = [
+  { webp: '/images/fans-supporters-portrait.webp', jpg: '/images/fans-supporters-portrait.jpg' },
+  { webp: '/images/team-paddock-group.webp', jpg: '/images/team-paddock-group.jpg' },
+  { webp: '/images/team-group-photo.webp', jpg: '/images/team-group-photo.jpg' },
+];
 ---
 <section id="community" class="relative bg-black py-20 sm:py-28 overflow-hidden">
   <picture class="absolute inset-0 -z-10">
     <source srcset="/images/fans-supporters-portrait.webp" type="image/webp" />
-    <img src="/images/fans-supporters-portrait.jpg" alt="" class="hero-zoom w-full h-full object-cover opacity-40" loading="lazy" decoding="async" />
+    <img src="/images/fans-supporters-portrait.jpg" alt="" class="hero-zoom w-full h-full object-cover opacity-25" loading="lazy" decoding="async" />
   </picture>
-  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black via-black/70 to-black/40"></div>
 
   <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="reveal max-w-2xl">
       <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.community.kicker}</p>
       <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.community.title}</h2>
       <p class="mt-5 text-base sm:text-lg text-[var(--color-text)]/85">{dict.community.body}</p>
+    </div>
+
+    <div class="mt-10 sm:mt-14 -mx-4 sm:mx-0 grid grid-flow-col auto-cols-[80%] sm:auto-cols-auto sm:grid-flow-row sm:grid-cols-3 gap-3 sm:gap-5 overflow-x-auto sm:overflow-visible snap-x snap-mandatory sm:snap-none px-4 sm:px-0 pb-2 sm:pb-0">
+      {fanImages.map((img, i) => (
+        <figure class="reveal relative aspect-[4/5] sm:aspect-[4/3] overflow-hidden rounded-sm bg-[var(--color-bg-elevated)] snap-center" style={`transition-delay: ${i * 100}ms`}>
+          <picture>
+            <source srcset={img.webp} type="image/webp" />
+            <img src={img.jpg} alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          </picture>
+          <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+        </figure>
+      ))}
     </div>
   </div>
 </section>

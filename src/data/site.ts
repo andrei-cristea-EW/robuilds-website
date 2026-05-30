@@ -77,4 +77,4 @@ export const REACH = [
   { key: 'ig_followers', value: 3.7, unit: 'K' },
 ] as const;
 
-export const RESULTS_ORDER = ['y2024', 'y2025', 'y2026'] as const;
+export const RESULTS_ORDER = ['y2024', 'y2025', 'y2026', 'future'] as const;

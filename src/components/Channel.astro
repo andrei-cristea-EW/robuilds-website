@@ -1,0 +1,57 @@
+---
+import { t, type Locale } from '../i18n';
+import { SOCIALS, REACH } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+const yt = SOCIALS.find((s) => s.key === 'youtube')!;
+const ig = SOCIALS.find((s) => s.key === 'instagram')!;
+const ytReach = REACH.find((r) => r.key === 'yt_subs')!;
+const igReach = REACH.find((r) => r.key === 'ig_followers')!;
+const dec = (n: number) => (n % 1 === 0 ? 0 : 1);
+---
+<section id="channel" class="relative bg-[var(--color-bg)] py-20 sm:py-28 overflow-hidden">
+  <div aria-hidden="true" class="absolute inset-0 -z-10 opacity-[0.05] bg-[radial-gradient(circle_at_30%_40%,var(--color-accent),transparent_55%)]"></div>
+
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+    <div class="lg:col-span-7 reveal">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.channel.kicker}</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.channel.title}</h2>
+      <p class="mt-5 max-w-xl text-base sm:text-lg text-[var(--color-text)]/85">{dict.channel.body}</p>
+      <a href={yt.url} target="_blank" rel="noopener noreferrer" class="mt-7 inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase bg-[var(--color-red)] text-white hover:bg-white hover:text-black transition-colors rounded-sm">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
+        {dict.channel.cta}
+      </a>
+    </div>
+
+    <div class="lg:col-span-5 reveal grid gap-4 sm:gap-5" style="transition-delay: 120ms">
+      <a href={yt.url} target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-4 bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-red)] rounded-sm p-5 sm:p-6 transition-colors">
+        <div>
+          <div class="flex items-baseline gap-1 font-display text-white">
+            <span data-counter data-target={ytReach.value} data-decimals={dec(ytReach.value)} class="text-4xl sm:text-5xl tabular-nums">0</span>
+            <span class="text-2xl sm:text-3xl text-[var(--color-accent)]">{ytReach.unit}</span>
+          </div>
+          <p class="mt-1 text-xs sm:text-sm text-[var(--color-text-muted)] uppercase tracking-wider">{dict.channel.metrics.yt_subs}</p>
+          <p class="text-sm text-white mt-1">{yt.handle}</p>
+        </div>
+        <svg width="44" height="44" viewBox="0 0 24 24" class="text-[var(--color-red)] group-hover:scale-110 transition-transform" fill="currentColor" aria-hidden="true">
+          <path d="M23 7.5s-.2-1.6-.9-2.3c-.8-.9-1.8-.9-2.2-1C16.3 4 12 4 12 4s-4.3 0-7.9.2c-.4 0-1.4.1-2.2 1C1.2 5.9 1 7.5 1 7.5S.8 9.4.8 11.3v1.4c0 1.9.2 3.8.2 3.8s.2 1.6.9 2.3c.8.9 1.9.9 2.4 1 1.7.2 7.6.2 7.6.2s4.3 0 7.9-.3c.4-.1 1.4-.1 2.2-1 .7-.7.9-2.3.9-2.3s.2-1.9.2-3.8v-1.4c0-1.9-.3-3.7-.3-3.7zM9.7 15.4V8.6l5.6 3.4-5.6 3.4z"/>
+        </svg>
+      </a>
+      <a href={ig.url} target="_blank" rel="noopener noreferrer" class="group flex items-center justify-between gap-4 bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] rounded-sm p-5 sm:p-6 transition-colors">
+        <div>
+          <div class="flex items-baseline gap-1 font-display text-white">
+            <span data-counter data-target={igReach.value} data-decimals={dec(igReach.value)} class="text-4xl sm:text-5xl tabular-nums">0</span>
+            <span class="text-2xl sm:text-3xl text-[var(--color-accent)]">{igReach.unit}</span>
+          </div>
+          <p class="mt-1 text-xs sm:text-sm text-[var(--color-text-muted)] uppercase tracking-wider">{dict.channel.metrics.ig_followers}</p>
+          <p class="text-sm text-white mt-1">{ig.handle}</p>
+        </div>
+        <svg width="40" height="40" viewBox="0 0 24 24" class="text-white group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>

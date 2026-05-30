@@ -1,15 +1,15 @@
 ---
 import Base from '../../layouts/Base.astro';
 import Hero from '../../components/Hero.astro';
-import StatusBar from '../../components/StatusBar.astro';
+import PartnerMarquee from '../../components/PartnerMarquee.astro';
+import Channel from '../../components/Channel.astro';
+import Reel from '../../components/Reel.astro';
 import About from '../../components/About.astro';
 import Car from '../../components/Car.astro';
 import Team from '../../components/Team.astro';
 import Results from '../../components/Results.astro';
 import Reach from '../../components/Reach.astro';
 import Community from '../../components/Community.astro';
-import PartnerWall from '../../components/PartnerWall.astro';
-import Goals from '../../components/Goals.astro';
 import Support from '../../components/Support.astro';
 import Contact from '../../components/Contact.astro';
 
@@ -17,15 +17,15 @@ const locale = 'en' as const;
 ---
 <Base locale={locale} pageKey="home">
   <Hero locale={locale} />
-  <StatusBar locale={locale} />
+  <PartnerMarquee />
+  <Channel locale={locale} />
+  <Reel locale={locale} />
   <About locale={locale} />
   <Car locale={locale} />
   <Team locale={locale} />
   <Results locale={locale} />
   <Reach locale={locale} />
   <Community locale={locale} />
-  <PartnerWall locale={locale} />
-  <Goals locale={locale} />
   <Support locale={locale} />
   <Contact locale={locale} />
 

@@ -11,7 +11,8 @@
   --color-accent-deep: #3FA619;
   --color-red: #E11E2C;
 
-  --font-display: "Race Sport", "Impact", system-ui, sans-serif;
+  --font-brand: "Race Sport", "Impact", system-ui, sans-serif;
+  --font-display: "Anton", "Impact", system-ui, sans-serif;
   --font-sans: "Inter", system-ui, -apple-system, sans-serif;
 
   --shadow-glow: 0 0 60px -10px rgb(87 226 35 / 0.35);
@@ -22,6 +23,23 @@
   src: url("/fonts/race-sport.ttf") format("truetype");
   font-display: swap;
   font-weight: 400 900;
+}
+
+@font-face {
+  font-family: "Anton";
+  src: url("/fonts/anton-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Anton";
+  src: url("/fonts/anton-latin-ext.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
 @font-face {
@@ -52,6 +70,12 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+  letter-spacing: 0.005em;
+  text-transform: uppercase;
+}
+
+.font-brand {
+  font-family: var(--font-brand);
   letter-spacing: 0.01em;
   text-transform: uppercase;
 }
@@ -71,6 +95,57 @@ body {
   to { transform: scale(1.08); }
 }
 
+.hero-carousel {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.hero-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  animation: hero-cycle 28s infinite;
+  will-change: opacity, transform;
+}
+.hero-slide picture, .hero-slide img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.hero-slide img {
+  object-fit: cover;
+  animation: hero-kenburns 28s infinite ease-out;
+  transform-origin: center center;
+}
+.hero-slide:nth-child(1) { animation-delay: 0s; }
+.hero-slide:nth-child(1) img { animation-delay: 0s; }
+.hero-slide:nth-child(2) { animation-delay: 7s; }
+.hero-slide:nth-child(2) img { animation-delay: 7s; }
+.hero-slide:nth-child(3) { animation-delay: 14s; }
+.hero-slide:nth-child(3) img { animation-delay: 14s; }
+.hero-slide:nth-child(4) { animation-delay: 21s; }
+.hero-slide:nth-child(4) img { animation-delay: 21s; }
+
+@keyframes hero-cycle {
+  0%   { opacity: 0; }
+  2%   { opacity: 1; }
+  23%  { opacity: 1; }
+  27%  { opacity: 0; }
+  100% { opacity: 0; }
+}
+@keyframes hero-kenburns {
+  0%   { transform: scale(1.02); }
+  27%  { transform: scale(1.12); }
+  100% { transform: scale(1.12); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide { animation: none; opacity: 0; }
+  .hero-slide:nth-child(1) { opacity: 1; }
+  .hero-slide img { animation: none; transform: none; }
+  .hero-zoom { animation: none; }
+}
+
 .marquee {
   display: flex;
   overflow: hidden;
@@ -79,6 +154,7 @@ body {
 .marquee-track {
   display: flex;
   gap: 3rem;
+  align-items: center;
   animation: marquee 40s linear infinite;
   flex-shrink: 0;
   padding-right: 3rem;
@@ -86,6 +162,9 @@ body {
 @keyframes marquee {
   from { transform: translateX(0); }
   to { transform: translateX(-100%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track { animation: none; }
 }
 
 .reveal {
@@ -96,4 +175,7 @@ body {
 .reveal.in {
   opacity: 1;
   transform: translateY(0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
 }
