@@ -44,10 +44,10 @@ const slides = [
       </h1>
       <p class="mt-6 max-w-xl text-base sm:text-lg text-[var(--color-text)]/85">{dict.hero.tagline}</p>
       <div class="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
-        <a href="#partnership" class="inline-flex items-center px-6 py-3 text-sm font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black hover:bg-white transition-colors rounded-sm">
+        <a href="#partnership" class="inline-flex items-center justify-center min-w-[15rem] px-6 py-3 text-sm font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black hover:bg-white transition-colors rounded-sm">
           {dict.hero.cta_primary}
         </a>
-        <a href={yt.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold tracking-wide uppercase border border-white/30 text-white hover:bg-white/10 transition-colors rounded-sm">
+        <a href={yt.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 min-w-[15rem] px-6 py-3 text-sm font-semibold tracking-wide uppercase border border-white/30 text-white hover:bg-white/10 transition-colors rounded-sm">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7L8 5z"/></svg>
           {dict.hero.cta_secondary}
         </a>
@@ -55,7 +55,11 @@ const slides = [
     </div>
   </div>
 
-  <div class="absolute bottom-6 left-1/2 -translate-x-1/2 text-[var(--color-text-muted)] text-xs uppercase tracking-widest opacity-70 animate-pulse hidden sm:block">
-    <span>{locale === 'ro' ? 'Derulează' : 'Scroll'}</span>
-  </div>
+  <a href="#channel" aria-label={locale === 'ro' ? 'Derulează' : 'Scroll'} class="hero-scroll absolute bottom-6 left-1/2 -translate-x-1/2 hidden sm:flex flex-col items-center gap-2 text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors">
+    <span class="text-xs uppercase tracking-widest">{locale === 'ro' ? 'Derulează' : 'Scroll'}</span>
+    <svg width="18" height="22" viewBox="0 0 18 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M9 3v14" />
+      <path d="M3 12l6 6 6-6" />
+    </svg>
+  </a>
 </section>

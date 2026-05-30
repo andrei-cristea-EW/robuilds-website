@@ -56,7 +56,7 @@
       "gearbox": "Gearbox",
       "gearbox_v": "Sequential",
       "diff": "Differential",
-      "diff_v": "Winters",
+      "diff_v": "Winters Quick-Change",
       "chassis": "Chassis",
       "chassis_v": "BMW E46 Coupé"
     }
@@ -71,7 +71,7 @@
       },
       "razvan": {
         "name": "Răzvan Rizescu",
-        "role": "Crew chief · STREET driver"
+        "role": "Crew chief"
       },
       "alex": {
         "name": "Alex Popescu",

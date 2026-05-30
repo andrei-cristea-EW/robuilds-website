@@ -167,6 +167,17 @@ body {
   .marquee-track { animation: none; }
 }
 
+.hero-scroll svg {
+  animation: scroll-bounce 1.8s ease-in-out infinite;
+}
+@keyframes scroll-bounce {
+  0%, 100% { transform: translateY(0); opacity: 0.55; }
+  50%      { transform: translateY(8px); opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-scroll svg { animation: none; opacity: 0.8; }
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(24px);

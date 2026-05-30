@@ -54,9 +54,9 @@
       "torque": "Cuplu",
       "torque_v": "800 Nm",
       "gearbox": "Cutie viteze",
-      "gearbox_v": "Sequențială",
+      "gearbox_v": "Secvențială",
       "diff": "Diferențial",
-      "diff_v": "Winters",
+      "diff_v": "Winters Quick-Change",
       "chassis": "Șasiu",
       "chassis_v": "BMW E46 Coupé"
     }
@@ -71,7 +71,7 @@
       },
       "razvan": {
         "name": "Răzvan Rizescu",
-        "role": "Crew chief · Pilot STREET"
+        "role": "Crew chief"
       },
       "alex": {
         "name": "Alex Popescu",
