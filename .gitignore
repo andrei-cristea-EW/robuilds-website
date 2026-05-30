@@ -12,3 +12,6 @@ images/*.MOV
 images/*.mov
 public/images/profile-pics/
 images/3d tail lights/
+
+# local deploy notes (not committed)
+DEPLOY.md
