@@ -1,0 +1,47 @@
+---
+import { t, type Locale } from '../i18n';
+import { TEAM } from '../data/site';
+import fs from 'node:fs';
+import path from 'node:path';
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+
+const publicDir = path.resolve('./public');
+const members = TEAM.map((m) => {
+  const webpAbs = path.join(publicDir, m.photo.replace(/^\//, ''));
+  const jpgAbs = path.join(publicDir, m.photoFallback.replace(/^\//, ''));
+  const hasPhoto = fs.existsSync(webpAbs) || fs.existsSync(jpgAbs);
+  const info = (dict.team.members as Record<string, { name: string; role: string }>)[m.key];
+  return { ...m, hasPhoto, name: info.name, role: info.role };
+});
+---
+<section id="team" class="relative bg-[var(--color-bg)] py-20 sm:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10 sm:mb-14 max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.team.kicker}</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.team.title}</h2>
+    </div>
+
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5">
+      {members.map((m, i) => (
+        <article class="reveal group relative aspect-[3/4] overflow-hidden rounded-sm bg-[var(--color-bg-card)] border border-[var(--color-border)]" style={`transition-delay: ${i * 80}ms`}>
+          {m.hasPhoto ? (
+            <picture>
+              <source srcset={m.photo} type="image/webp" />
+              <img src={m.photoFallback} alt={m.name} class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" loading="lazy" decoding="async" />
+            </picture>
+          ) : (
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="font-display text-7xl sm:text-9xl text-[var(--color-border)]">{m.name.charAt(0)}</span>
+            </div>
+          )}
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-3 sm:p-4">
+            <h3 class="font-display text-base sm:text-lg text-white leading-tight">{m.name}</h3>
+            <p class="text-[10px] sm:text-xs uppercase tracking-wider text-[var(--color-accent)] mt-1">{m.role}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>

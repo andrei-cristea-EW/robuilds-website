@@ -1,0 +1,51 @@
+---
+import Base from '../layouts/Base.astro';
+import Hero from '../components/Hero.astro';
+import StatusBar from '../components/StatusBar.astro';
+import About from '../components/About.astro';
+import Car from '../components/Car.astro';
+import Team from '../components/Team.astro';
+import Results from '../components/Results.astro';
+import Reach from '../components/Reach.astro';
+import Community from '../components/Community.astro';
+import PartnerWall from '../components/PartnerWall.astro';
+import Goals from '../components/Goals.astro';
+import Support from '../components/Support.astro';
+import Contact from '../components/Contact.astro';
+
+const locale = 'ro' as const;
+---
+<Base locale={locale} pageKey="home">
+  <Hero locale={locale} />
+  <StatusBar locale={locale} />
+  <About locale={locale} />
+  <Car locale={locale} />
+  <Team locale={locale} />
+  <Results locale={locale} />
+  <Reach locale={locale} />
+  <Community locale={locale} />
+  <PartnerWall locale={locale} />
+  <Goals locale={locale} />
+  <Support locale={locale} />
+  <Contact locale={locale} />
+
+  <div class="lg:hidden fixed bottom-0 inset-x-0 z-30 px-3 pb-3 pt-2 bg-gradient-to-t from-black via-black/90 to-transparent" data-bottom-cta>
+    <div class="flex gap-2">
+      <a href="#partnership" class="flex-1 inline-flex items-center justify-center px-4 py-3 text-xs font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black rounded-sm">Devino partener</a>
+      <a href="/shop" class="inline-flex items-center justify-center px-4 py-3 text-xs font-semibold tracking-wide uppercase border border-white/30 text-white rounded-sm">Shop</a>
+    </div>
+  </div>
+
+  <script is:inline>
+    const cta = document.querySelector('[data-bottom-cta]');
+    if (cta) {
+      const onScroll = () => {
+        if (window.scrollY > window.innerHeight * 0.6) cta.classList.remove('translate-y-full');
+        else cta.classList.add('translate-y-full');
+      };
+      cta.classList.add('transition-transform', 'duration-300', 'translate-y-full');
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    }
+  </script>
+</Base>

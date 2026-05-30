@@ -1,0 +1,59 @@
+---
+import { t, type Locale } from '../i18n';
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+const specs = [
+  { label: dict.car.specs.engine, value: dict.car.specs.engine_v },
+  { label: dict.car.specs.power, value: dict.car.specs.power_v },
+  { label: dict.car.specs.torque, value: dict.car.specs.torque_v },
+  { label: dict.car.specs.drive, value: dict.car.specs.drive_v },
+  { label: dict.car.specs.chassis, value: dict.car.specs.chassis_v },
+  { label: dict.car.specs.livery, value: dict.car.specs.livery_v },
+];
+const gallery = [
+  { webp: '/images/bmw-e46-night-rear.webp', jpg: '/images/bmw-e46-night-rear.jpg' },
+  { webp: '/images/bmw-e46-night-front.webp', jpg: '/images/bmw-e46-night-front.jpg' },
+  { webp: '/images/drift-action-pakelo-track.webp', jpg: '/images/drift-action-pakelo-track.jpg' },
+];
+---
+<section id="car" class="relative bg-[var(--color-bg-elevated)] py-20 sm:py-28 overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10 sm:mb-14">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.car.kicker}</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white max-w-3xl">{dict.car.title}</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-8 lg:gap-12">
+      <figure class="reveal lg:col-span-8 relative aspect-[16/10] overflow-hidden rounded-sm bg-black">
+        <picture>
+          <source srcset="/images/bmw-e46-night-side.webp" type="image/webp" />
+          <img src="/images/bmw-e46-night-side.jpg" alt={dict.car.title} class="hero-zoom w-full h-full object-cover" loading="lazy" decoding="async" />
+        </picture>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none"></div>
+      </figure>
+
+      <div class="reveal lg:col-span-4" style="transition-delay: 100ms">
+        <p class="text-sm sm:text-base text-[var(--color-text)]/85 leading-relaxed mb-6">{dict.car.body}</p>
+        <dl class="divide-y divide-[var(--color-border)] border-y border-[var(--color-border)]">
+          {specs.map((s) => (
+            <div class="flex justify-between gap-4 py-3">
+              <dt class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{s.label}</dt>
+              <dd class="text-sm font-medium text-white text-right">{s.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2 sm:gap-4 mt-6">
+      {gallery.map((g, i) => (
+        <figure class="reveal aspect-[4/3] overflow-hidden rounded-sm bg-black" style={`transition-delay: ${i * 80}ms`}>
+          <picture>
+            <source srcset={g.webp} type="image/webp" />
+            <img src={g.jpg} alt="" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700" loading="lazy" decoding="async" />
+          </picture>
+        </figure>
+      ))}
+    </div>
+  </div>
+</section>

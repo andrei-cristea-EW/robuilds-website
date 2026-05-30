@@ -1,0 +1,31 @@
+---
+import { altLocale, type Locale } from '../i18n';
+
+interface Props { locale: Locale; class?: string; }
+const { locale, class: className = '' } = Astro.props;
+
+const other = altLocale(locale);
+const path = Astro.url.pathname;
+
+// Compute the equivalent path on the other locale.
+// RO routes are at /..., EN routes are at /en/...
+let targetPath: string;
+if (locale === 'ro') {
+  // Switching RO → EN: prefix with /en
+  targetPath = path === '/' ? '/en/' : `/en${path.endsWith('/') ? path : path + '/'}`;
+} else {
+  // Switching EN → RO: strip /en prefix
+  const stripped = path.replace(/^\/en\/?/, '/');
+  targetPath = stripped.length === 0 ? '/' : stripped;
+}
+---
+<a
+  href={targetPath}
+  hreflang={other}
+  aria-label={other === 'en' ? 'English' : 'Română'}
+  class={`inline-flex items-center gap-1.5 text-xs font-medium tracking-wider uppercase text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors ${className}`}
+>
+  <span class={locale === 'ro' ? 'text-[var(--color-accent)]' : ''}>RO</span>
+  <span class="opacity-40">/</span>
+  <span class={locale === 'en' ? 'text-[var(--color-accent)]' : ''}>EN</span>
+</a>

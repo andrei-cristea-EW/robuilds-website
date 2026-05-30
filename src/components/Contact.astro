@@ -1,0 +1,105 @@
+---
+import { t, type Locale } from '../i18n';
+import { SITE } from '../data/site';
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+const hasKey = !!SITE.web3formsKey;
+---
+<section id="partnership" class="relative bg-[var(--color-bg)] py-20 sm:py-28">
+  <div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10 sm:mb-12">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.contact.kicker}</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.contact.title}</h2>
+      <p class="mt-5 text-base text-[var(--color-text)]/80">{dict.contact.body}</p>
+    </div>
+
+    <form
+      data-contact-form
+      action={hasKey ? 'https://api.web3forms.com/submit' : `mailto:${SITE.email}`}
+      method="POST"
+      class="reveal grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5"
+      style="transition-delay: 100ms"
+    >
+      {hasKey && <input type="hidden" name="access_key" value={SITE.web3formsKey} />}
+      <input type="hidden" name="from_name" value="RO Builds website" />
+      <input type="text" name="botcheck" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+      <label class="block">
+        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.name}</span>
+        <input required type="text" name="name" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors" />
+      </label>
+      <label class="block">
+        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.email}</span>
+        <input required type="email" name="email" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors" />
+      </label>
+      <label class="block">
+        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.company}</span>
+        <input type="text" name="company" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors" />
+      </label>
+      <label class="block">
+        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.subject}</span>
+        <select name="subject" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors">
+          <option value={dict.contact.form.subject_partnership}>{dict.contact.form.subject_partnership}</option>
+          <option value={dict.contact.form.subject_order}>{dict.contact.form.subject_order}</option>
+          <option value={dict.contact.form.subject_other}>{dict.contact.form.subject_other}</option>
+        </select>
+      </label>
+      <label class="block sm:col-span-2">
+        <span class="block text-xs uppercase tracking-wider text-[var(--color-text-muted)] mb-2">{dict.contact.form.message}</span>
+        <textarea required name="message" rows="5" class="w-full bg-[var(--color-bg-card)] border border-[var(--color-border)] rounded-sm px-4 py-3 text-[var(--color-text)] focus:border-[var(--color-accent)] focus:outline-none transition-colors resize-y"></textarea>
+      </label>
+      <div class="sm:col-span-2 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mt-2">
+        <p class="text-xs text-[var(--color-text-muted)]">
+          {dict.contact.direct} <a class="text-[var(--color-accent)] hover:text-white transition-colors" href={`mailto:${SITE.email}`}>{SITE.email}</a> · <a class="text-[var(--color-accent)] hover:text-white transition-colors" href={`tel:${SITE.phoneDigits}`}>{SITE.phone}</a>
+        </p>
+        <button type="submit" class="inline-flex items-center justify-center px-6 py-3 text-sm font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black hover:bg-white transition-colors rounded-sm">
+          <span data-submit-label>{dict.contact.form.submit}</span>
+        </button>
+      </div>
+      <p data-form-status class="sm:col-span-2 hidden text-sm"></p>
+    </form>
+  </div>
+</section>
+
+<script is:inline define:vars={{ hasKey, email: SITE.email, msg: { sending: dict.contact.form.sending, success: dict.contact.form.success, error: dict.contact.form.error, submit: dict.contact.form.submit } }}>
+  document.querySelectorAll('[data-contact-form]').forEach((form) => {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const status = form.querySelector('[data-form-status]');
+      const label = form.querySelector('[data-submit-label]');
+      const btn = form.querySelector('button[type="submit"]');
+
+      if (!hasKey) {
+        // Build a mailto: URL from form values
+        const data = new FormData(form);
+        const name = (data.get('name') || '').toString();
+        const fromEmail = (data.get('email') || '').toString();
+        const company = (data.get('company') || '').toString();
+        const subject = (data.get('subject') || '').toString();
+        const message = (data.get('message') || '').toString();
+        const body = `${message}\n\n---\n${name}${company ? ' · ' + company : ''}\n${fromEmail}`;
+        window.location.href = `mailto:${email}?subject=${encodeURIComponent('[RO Builds] ' + subject)}&body=${encodeURIComponent(body)}`;
+        return;
+      }
+
+      label.textContent = msg.sending;
+      btn.disabled = true;
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { Accept: 'application/json' } });
+        if (!res.ok) throw new Error('bad response');
+        status.classList.remove('hidden');
+        status.classList.add('text-[var(--color-accent)]');
+        status.textContent = msg.success;
+        form.reset();
+      } catch {
+        status.classList.remove('hidden');
+        status.classList.add('text-[var(--color-red)]');
+        status.textContent = msg.error;
+      } finally {
+        label.textContent = msg.submit;
+        btn.disabled = false;
+      }
+    });
+  });
+</script>

@@ -1,0 +1,48 @@
+---
+import { t, localePath, type Locale } from '../i18n';
+import { PRODUCTS } from '../data/products';
+
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+
+const fmt = (n: number) => new Intl.NumberFormat(locale === 'ro' ? 'ro-RO' : 'en-US').format(n);
+---
+<section class="relative bg-[var(--color-bg)] pt-28 sm:pt-36 pb-20 sm:pb-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal mb-10 sm:mb-14 max-w-3xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.shop.title}</p>
+      <h1 class="font-display text-4xl sm:text-6xl lg:text-7xl leading-[0.92] text-white">{dict.shop.hero_title}</h1>
+      <p class="mt-5 max-w-2xl text-base text-[var(--color-text)]/80">{dict.shop.hero_body}</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      {PRODUCTS.map((p, i) => {
+        const sold = p.status === 'sold_out';
+        const ext = p.images[0].endsWith('.webp') ? p.images[0] : `${p.images[0]}.webp`;
+        const jpg = ext.replace(/\.webp$/, '.jpg');
+        return (
+          <a href={localePath(locale, `shop/${p.slug}`)} class="reveal group block bg-[var(--color-bg-elevated)] border border-[var(--color-border)] hover:border-[var(--color-accent)] rounded-sm overflow-hidden transition-colors" style={`transition-delay: ${i * 60}ms`}>
+            <div class="relative aspect-[4/3] overflow-hidden bg-black">
+              <picture>
+                <source srcset={ext} type="image/webp" />
+                <img src={jpg} alt={p.name} class={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${sold ? 'grayscale opacity-60' : ''}`} loading="lazy" decoding="async" />
+              </picture>
+              {sold && (
+                <span class="absolute top-3 left-3 text-[10px] font-semibold uppercase tracking-widest bg-[var(--color-red)] text-white px-2 py-1 rounded-sm">{dict.shop.sold_out}</span>
+              )}
+            </div>
+            <div class="p-5">
+              <h3 class="font-display text-lg text-white leading-tight">{p.name}</h3>
+              <p class="mt-2 text-sm text-[var(--color-text-muted)] line-clamp-2">{p.blurb[locale]}</p>
+              <div class="mt-4 flex items-baseline gap-1.5">
+                {p.priceFrom && <span class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.from}</span>}
+                <span class="font-display text-xl text-[var(--color-accent)] tabular-nums">{fmt(p.price)}</span>
+                <span class="text-xs uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.currency}</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</section>

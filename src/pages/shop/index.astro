@@ -1,0 +1,13 @@
+---
+import Base from '../../layouts/Base.astro';
+import ShopGrid from '../../components/ShopGrid.astro';
+import Contact from '../../components/Contact.astro';
+import { t } from '../../i18n';
+
+const locale = 'ro' as const;
+const dict = t(locale);
+---
+<Base locale={locale} pageKey="shop" titleOverride={`${dict.shop.title} · ${dict.meta.title}`}>
+  <ShopGrid locale={locale} />
+  <Contact locale={locale} />
+</Base>

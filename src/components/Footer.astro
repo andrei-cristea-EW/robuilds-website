@@ -1,0 +1,51 @@
+---
+import { t, localePath, type Locale } from '../i18n';
+import { SITE, SOCIALS } from '../data/site';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props { locale: Locale; }
+const { locale } = Astro.props;
+const dict = t(locale);
+const year = new Date().getFullYear();
+---
+<footer class="relative border-t border-[var(--color-border)] bg-[var(--color-bg-elevated)] mt-12">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="md:col-span-2">
+        <img src="/logos/robuilds/full-white.png" alt="RO Builds Motorsport" width="220" height="80" class="h-12 w-auto mb-4" />
+        <p class="text-sm text-[var(--color-text-muted)] max-w-xs">{dict.footer.tagline}</p>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3">{dict.footer.socials}</h4>
+        <ul class="space-y-2">
+          {SOCIALS.map((s) => (
+            <li>
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="text-sm text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">
+                {s.label} <span class="text-[var(--color-text-muted)]">{s.handle}</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div>
+        <h4 class="text-xs font-semibold uppercase tracking-widest text-[var(--color-text-muted)] mb-3">{dict.footer.contact_label}</h4>
+        <ul class="space-y-2 text-sm">
+          <li><a href={`mailto:${SITE.email}`} class="text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors break-all">{SITE.email}</a></li>
+          <li><a href={`tel:${SITE.phoneDigits}`} class="text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors">{SITE.phone}</a></li>
+          <li class="pt-2">
+            <a href={SITE.form230Url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-[var(--color-accent)] hover:text-white transition-colors">
+              {dict.footer.form230} →
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10 pt-6 border-t border-[var(--color-border)] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <p class="text-xs text-[var(--color-text-muted)]">© {year} {SITE.name}. {dict.footer.rights}</p>
+      <LangSwitch locale={locale} />
+    </div>
+  </div>
+</footer>

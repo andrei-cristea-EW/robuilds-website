@@ -1,0 +1,72 @@
+---
+import Base from '../../layouts/Base.astro';
+import Contact from '../../components/Contact.astro';
+import { t, localePath } from '../../i18n';
+import { PRODUCTS } from '../../data/products';
+
+export function getStaticPaths() {
+  return PRODUCTS.map((p) => ({ params: { slug: p.slug }, props: { product: p } }));
+}
+
+const { product } = Astro.props;
+const locale = 'ro' as const;
+const dict = t(locale);
+const sold = product.status === 'sold_out';
+const fmt = (n: number) => new Intl.NumberFormat('ro-RO').format(n);
+const heroWebp = product.images[0].endsWith('.webp') ? product.images[0] : `${product.images[0]}.webp`;
+const heroJpg = heroWebp.replace(/\.webp$/, '.jpg');
+---
+<Base locale={locale} pageKey="product" titleOverride={`${product.name} · ${dict.shop.title}`}>
+  <section class="relative bg-[var(--color-bg)] pt-28 sm:pt-32 pb-20 sm:pb-28">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <a href={localePath(locale, 'shop')} class="reveal inline-flex items-center text-sm text-[var(--color-text-muted)] hover:text-[var(--color-accent)] transition-colors mb-8">
+        {dict.shop.back}
+      </a>
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-14 items-start">
+        <figure class="reveal relative aspect-[4/3] lg:aspect-square overflow-hidden rounded-sm bg-[var(--color-bg-elevated)] border border-[var(--color-border)]">
+          <picture>
+            <source srcset={heroWebp} type="image/webp" />
+            <img src={heroJpg} alt={product.name} class={`w-full h-full object-cover ${sold ? 'grayscale opacity-70' : ''}`} loading="eager" decoding="async" />
+          </picture>
+          {sold && (
+            <span class="absolute top-4 left-4 text-xs font-semibold uppercase tracking-widest bg-[var(--color-red)] text-white px-3 py-1 rounded-sm">{dict.shop.sold_out}</span>
+          )}
+        </figure>
+
+        <div class="reveal" style="transition-delay: 100ms">
+          <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-3">{dict.shop.product_label}</p>
+          <h1 class="font-display text-3xl sm:text-5xl text-white leading-tight">{product.name}</h1>
+          <p class="mt-5 text-base text-[var(--color-text)]/85">{product.blurb[locale]}</p>
+
+          <div class="mt-8 flex items-baseline gap-2">
+            {product.priceFrom && <span class="text-sm uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.from}</span>}
+            <span class="font-display text-4xl sm:text-5xl text-[var(--color-accent)] tabular-nums">{fmt(product.price)}</span>
+            <span class="text-base uppercase tracking-wider text-[var(--color-text-muted)]">{dict.shop.currency}</span>
+          </div>
+
+          <a href={`#partnership?product=${encodeURIComponent(product.name)}`} class="mt-8 inline-flex items-center px-6 py-3 text-sm font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black hover:bg-white transition-colors rounded-sm">
+            {dict.shop.order_cta}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <Contact locale={locale} />
+
+  <script is:inline define:vars={{ productName: product.name }}>
+    const params = new URLSearchParams(window.location.search);
+    const prefill = params.get('product') || productName;
+    const msg = document.querySelector('[data-contact-form] textarea[name="message"]');
+    const subject = document.querySelector('[data-contact-form] select[name="subject"]');
+    if (msg && !msg.value) msg.value = `Salut, sunt interesat de: ${prefill}.\n\n`;
+    if (subject) {
+      for (const opt of subject.options) {
+        if (opt.value.toLowerCase().includes('magazin') || opt.value.toLowerCase().includes('order')) {
+          subject.value = opt.value;
+          break;
+        }
+      }
+    }
+  </script>
+</Base>

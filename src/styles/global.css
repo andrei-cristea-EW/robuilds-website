@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #0A0B0D;
+  --color-bg-elevated: #15171B;
+  --color-bg-card: #1B1E23;
+  --color-border: #25282E;
+  --color-text: #F5F5F4;
+  --color-text-muted: #9CA0A6;
+  --color-accent: #57E223;
+  --color-accent-deep: #3FA619;
+  --color-red: #E11E2C;
+
+  --font-display: "Race Sport", "Impact", system-ui, sans-serif;
+  --font-sans: "Inter", system-ui, -apple-system, sans-serif;
+
+  --shadow-glow: 0 0 60px -10px rgb(87 226 35 / 0.35);
+}
+
+@font-face {
+  font-family: "Race Sport";
+  src: url("/fonts/race-sport.ttf") format("truetype");
+  font-display: swap;
+  font-weight: 400 900;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/inter-variable.woff2") format("woff2-variations");
+  font-display: swap;
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+body {
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+
+.diag-cut-b {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 3vw), 0 100%);
+}
+.diag-cut-t {
+  clip-path: polygon(0 3vw, 100% 0, 100% 100%, 0 100%);
+}
+
+.hero-zoom {
+  animation: hero-zoom 30s ease-out forwards;
+}
+@keyframes hero-zoom {
+  from { transform: scale(1); }
+  to { transform: scale(1.08); }
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+}
+.marquee-track {
+  display: flex;
+  gap: 3rem;
+  animation: marquee 40s linear infinite;
+  flex-shrink: 0;
+  padding-right: 3rem;
+}
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-100%); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 700ms ease, transform 700ms ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}

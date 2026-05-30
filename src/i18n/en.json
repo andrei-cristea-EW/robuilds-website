@@ -1,0 +1,218 @@
+{
+  "locale": "en",
+  "meta": {
+    "title": "RO Builds Motorsport — Professional drift team",
+    "description": "Romanian pro drift team, P3 in RoDrift PRO 2026, BMW E46 4.4 V8 Turbo, 600 whp. See the team, the car, partners and shop."
+  },
+  "nav": {
+    "team": "Team",
+    "car": "Car",
+    "reach": "Reach",
+    "partners": "Partners",
+    "shop": "Shop",
+    "partnerships": "Partnerships",
+    "support": "Support",
+    "cta": "Become a partner"
+  },
+  "hero": {
+    "eyebrow": "Pro drift team · Romania",
+    "title_1": "RO BUILDS",
+    "title_2": "MOTORSPORT",
+    "tagline": "Professional drift team. P3 in RoDrift PRO 2026.",
+    "cta_primary": "Become a partner",
+    "cta_secondary": "Watch on YouTube"
+  },
+  "status": {
+    "rank": "P3 RoDrift PRO 2026",
+    "engine": "BMW E46 · 4.4 V8 Turbo",
+    "power": "600 whp · 800 Nm"
+  },
+  "about": {
+    "kicker": "About",
+    "title": "Building Romanian drift, lap after lap.",
+    "body": "We're a motorsport-obsessed team entering our fourth season in the Romanian National Drift Championship (RoDrift). Promoted to the PRO class in 2024. P7 in 2025. Fighting for the title in 2026 — currently P3. We hand-build our cars, film the whole process and run Romania's biggest drift YouTube channel.",
+    "stats": {
+      "season": "4th season",
+      "class": "PRO class",
+      "rank": "P3 / 2026"
+    }
+  },
+  "car": {
+    "kicker": "Race car",
+    "title": "BMW E46 · 4.4 V8 Turbo",
+    "body": "Hand-built from scratch. BMW M62 4.4 V8 with turbocharger. 600 wheel horsepower. 800 Nm of torque. One of the most spectacular cars in the championship.",
+    "specs": {
+      "engine": "Engine",
+      "engine_v": "BMW M62 4.4 V8 Turbo",
+      "power": "Power",
+      "power_v": "600 whp",
+      "torque": "Torque",
+      "torque_v": "800 Nm",
+      "drive": "Drivetrain",
+      "drive_v": "RWD · locked diff",
+      "chassis": "Chassis",
+      "chassis_v": "BMW E46 Coupé",
+      "livery": "Livery",
+      "livery_v": "Green · red · white"
+    }
+  },
+  "team": {
+    "kicker": "Team",
+    "title": "Four people, one mission.",
+    "members": {
+      "andrei": {
+        "name": "Andrei Cristea",
+        "role": "Lead driver · PRO"
+      },
+      "razvan": {
+        "name": "Răzvan Rizescu",
+        "role": "Crew chief · STREET driver"
+      },
+      "alex": {
+        "name": "Alexandru Popescu",
+        "role": "Mechanic specialist"
+      },
+      "radu": {
+        "name": "Radu Cristea",
+        "role": "Media"
+      }
+    }
+  },
+  "results": {
+    "kicker": "Results",
+    "title": "The road to the title.",
+    "items": {
+      "y2024": { "year": "2024", "label": "Promoted to PRO class" },
+      "y2025": { "year": "2025", "label": "P7 in RoDrift PRO" },
+      "y2026": { "year": "2026", "label": "P3 — current season" }
+    }
+  },
+  "reach": {
+    "kicker": "Reach",
+    "title": "Romania's most followed drift team.",
+    "body": "Aggregate numbers from the 2023 RoDrift season plus live socials. Romanian drifting is growing — and we're growing with it.",
+    "metrics": {
+      "unique": "Total unique reach",
+      "ig_reach": "Instagram reach",
+      "tv": "TV reach",
+      "radio": "Radio reach",
+      "attendance": "Event attendance",
+      "yt_subs": "YouTube subscribers",
+      "ig_followers": "Instagram followers"
+    },
+    "caveat": "Numbers from the 2023 RoDrift season; socials — live."
+  },
+  "community": {
+    "kicker": "Community",
+    "title": "The biggest fan base in the championship.",
+    "body": "Every round, our fans show up by the dozens — all wearing team and sponsor branded shirts. We're not just running a drift team, we're building a community."
+  },
+  "partners": {
+    "kicker": "Partners",
+    "title": "We go further with them.",
+    "cta": "See what we offer partners →"
+  },
+  "goals": {
+    "kicker": "Goals",
+    "title": "Two clear targets.",
+    "items": {
+      "national": {
+        "title": "Win the national championship",
+        "body": "P3 in 2026. Next step: the RoDrift PRO title."
+      },
+      "international": {
+        "title": "Go international",
+        "body": "Preparing our debut in the Drift Masters European Championship — Europe's biggest drift series."
+      }
+    }
+  },
+  "support": {
+    "kicker": "Support us",
+    "title": "Three ways to back the team.",
+    "items": {
+      "form230": {
+        "title": "Form 230 (RO taxpayers)",
+        "body": "Redirect 3.5% of your income tax to Asociația Club Sportiv RBuilds Motorsport. Costs you nothing — means everything to us.",
+        "cta": "Redirect now"
+      },
+      "partner": {
+        "title": "Become a partner",
+        "body": "Want to take your brand into motorsport? Customisable packages for any budget and goal.",
+        "cta": "See partnerships"
+      },
+      "shop": {
+        "title": "Team shop",
+        "body": "T-shirts, caps and parts we developed for the BMW E46. Every order helps fund the season.",
+        "cta": "Open the shop"
+      }
+    }
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Get in touch.",
+    "body": "For partnerships, shop orders or anything about the team.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "company": "Company (optional)",
+      "subject": "Subject",
+      "subject_partnership": "Partnership",
+      "subject_order": "Shop order",
+      "subject_other": "Other",
+      "message": "Message",
+      "submit": "Send message",
+      "sending": "Sending…",
+      "success": "Thanks! We'll get back to you soon.",
+      "error": "Something went wrong. Email us directly."
+    },
+    "direct": "Or directly:"
+  },
+  "partnerships": {
+    "title": "Partnerships",
+    "hero_title": "We take your brand into motorsport.",
+    "hero_body": "Customisable packages for any goal — from car livery exposure to dedicated YouTube campaigns. All details available, no public pricing — we talk directly.",
+    "offers_title": "What partners get",
+    "offers": {
+      "car": {
+        "title": "Race car livery",
+        "body": "Your logo on the competition BMW — seen by thousands of spectators at every round and tens of thousands of viewers online."
+      },
+      "suit": {
+        "title": "Driver suit branding",
+        "body": "Your logo on the driver's race suit — visible in every photo session, interview and podium shot."
+      },
+      "uniform": {
+        "title": "Team uniform",
+        "body": "Five team members at every event, all in the same uniform with your logo. Plus hundreds of fans in branded merch."
+      },
+      "social": {
+        "title": "Social campaign",
+        "body": "Weekly content on YouTube, Instagram, TikTok. Video ads, mentions, organic integrations in our vlogs."
+      },
+      "paddock": {
+        "title": "Event-day marketing",
+        "body": "Banners, flags, promotional materials in the team paddock. Flyer handouts to spectators."
+      }
+    },
+    "cta": "Let's talk"
+  },
+  "shop": {
+    "title": "Shop",
+    "hero_title": "Gear up with the team.",
+    "hero_body": "Curated products — t-shirts, caps and parts we built for the BMW E46. Orders go through direct contact.",
+    "sold_out": "Sold out",
+    "from": "from",
+    "currency": "RON",
+    "order_cta": "Contact us to order",
+    "back": "← Back to shop",
+    "product_label": "Product"
+  },
+  "footer": {
+    "tagline": "Pro drift team from Romania.",
+    "socials": "Social",
+    "links": "Links",
+    "contact_label": "Contact",
+    "form230": "Form 230",
+    "rights": "All rights reserved."
+  }
+}

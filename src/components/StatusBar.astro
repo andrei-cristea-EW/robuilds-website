@@ -1,0 +1,40 @@
+---
+import { t, type Locale } from '../i18n';
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+---
+<section class="relative bg-black border-y border-[var(--color-border)] overflow-hidden">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 sm:py-5">
+    <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-center">
+      <div class="flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-[var(--color-accent)] animate-pulse" aria-hidden="true"></span>
+        <span class="text-xs sm:text-sm font-semibold tracking-wider uppercase text-white">{dict.status.rank}</span>
+      </div>
+      <span class="hidden sm:inline text-[var(--color-text-muted)]">·</span>
+      <span class="text-xs sm:text-sm text-[var(--color-text-muted)] uppercase tracking-wider">{dict.status.engine}</span>
+      <span class="hidden sm:inline text-[var(--color-text-muted)]">·</span>
+      <span class="text-xs sm:text-sm text-[var(--color-text-muted)] uppercase tracking-wider">{dict.status.power}</span>
+    </div>
+  </div>
+</section>
+
+<section class="bg-[var(--color-bg)] py-3 overflow-hidden border-b border-[var(--color-border)]">
+  <div class="marquee">
+    <div class="marquee-track text-[var(--color-text-muted)]/30 font-display text-2xl sm:text-3xl tracking-wider whitespace-nowrap">
+      {Array.from({ length: 8 }).map(() => (
+        <span class="flex items-center gap-6">
+          RO BUILDS MOTORSPORT
+          <span class="inline-block w-2 h-2 rotate-45 bg-[var(--color-accent)]"></span>
+        </span>
+      ))}
+    </div>
+    <div class="marquee-track text-[var(--color-text-muted)]/30 font-display text-2xl sm:text-3xl tracking-wider whitespace-nowrap" aria-hidden="true">
+      {Array.from({ length: 8 }).map(() => (
+        <span class="flex items-center gap-6">
+          RO BUILDS MOTORSPORT
+          <span class="inline-block w-2 h-2 rotate-45 bg-[var(--color-accent)]"></span>
+        </span>
+      ))}
+    </div>
+  </div>
+</section>

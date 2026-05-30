@@ -1,0 +1,100 @@
+---
+import '../styles/global.css';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+import { t, type Locale } from '../i18n';
+import { SITE } from '../data/site';
+
+interface Props {
+  locale: Locale;
+  pageKey?: 'home' | 'partnerships' | 'shop' | 'product';
+  titleOverride?: string;
+  descriptionOverride?: string;
+  ogImage?: string;
+}
+
+const { locale, pageKey = 'home', titleOverride, descriptionOverride, ogImage = '/images/bmw-e46-night-side.jpg' } = Astro.props;
+const dict = t(locale);
+const title = titleOverride ?? dict.meta.title;
+const description = descriptionOverride ?? dict.meta.description;
+const canonical = new URL(Astro.url.pathname, SITE.url).toString();
+---
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0A0B0D" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <link rel="preload" href="/fonts/race-sport.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="preload" href="/fonts/inter-variable.woff2" as="font" type="font/woff2" crossorigin />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(ogImage, SITE.url).toString()} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:site_name" content={SITE.name} />
+    <meta property="og:locale" content={locale === 'ro' ? 'ro_RO' : 'en_US'} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" type="image/png" href="/logos/robuilds/wordmark-white.png" />
+  </head>
+  <body class="bg-[var(--color-bg)] text-[var(--color-text)] min-h-screen antialiased overflow-x-hidden">
+    <a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:bg-[var(--color-accent)] focus:text-black focus:px-3 focus:py-1.5 focus:rounded">
+      {locale === 'ro' ? 'Sari la conținut' : 'Skip to content'}
+    </a>
+    <Nav locale={locale} pageKey={pageKey} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+
+    <script>
+      const io = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        }
+      }, { rootMargin: '0px 0px -10% 0px', threshold: 0.1 });
+      document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+
+      // Counter animation
+      const counterIO = new IntersectionObserver((entries) => {
+        for (const e of entries) {
+          if (!e.isIntersecting) continue;
+          const el = e.target as HTMLElement;
+          const target = parseFloat(el.dataset.target || '0');
+          const decimals = parseInt(el.dataset.decimals || '0', 10);
+          const duration = 1500;
+          const start = performance.now();
+          const tick = (now: number) => {
+            const p = Math.min(1, (now - start) / duration);
+            const eased = 1 - Math.pow(1 - p, 3);
+            el.textContent = (target * eased).toFixed(decimals);
+            if (p < 1) requestAnimationFrame(tick);
+            else el.textContent = target.toFixed(decimals);
+          };
+          requestAnimationFrame(tick);
+          counterIO.unobserve(el);
+        }
+      }, { threshold: 0.3 });
+      document.querySelectorAll('[data-counter]').forEach((el) => counterIO.observe(el));
+
+      // Nav scroll state
+      const nav = document.querySelector('[data-nav]');
+      const onScroll = () => {
+        if (!nav) return;
+        if (window.scrollY > 24) nav.classList.add('is-scrolled');
+        else nav.classList.remove('is-scrolled');
+      };
+      window.addEventListener('scroll', onScroll, { passive: true });
+      onScroll();
+    </script>
+  </body>
+</html>

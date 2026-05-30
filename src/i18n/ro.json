@@ -1,0 +1,218 @@
+{
+  "locale": "ro",
+  "meta": {
+    "title": "RO Builds Motorsport — Echipă profesionistă de drift",
+    "description": "Echipă de drift din România, locul 3 în RoDrift PRO 2026, BMW E46 4.4 V8 Turbo, 600 cp. Vezi echipa, mașina, parteneri și magazin."
+  },
+  "nav": {
+    "team": "Echipa",
+    "car": "Mașina",
+    "reach": "Audiență",
+    "partners": "Parteneri",
+    "shop": "Magazin",
+    "partnerships": "Parteneriate",
+    "support": "Susține-ne",
+    "cta": "Devino partener"
+  },
+  "hero": {
+    "eyebrow": "Pro drift team · România",
+    "title_1": "RO BUILDS",
+    "title_2": "MOTORSPORT",
+    "tagline": "Echipă profesionistă de drift. Locul 3 în RoDrift PRO 2026.",
+    "cta_primary": "Devino partener",
+    "cta_secondary": "Vezi pe YouTube"
+  },
+  "status": {
+    "rank": "P3 RoDrift PRO 2026",
+    "engine": "BMW E46 · 4.4 V8 Turbo",
+    "power": "600 cp · 800 Nm"
+  },
+  "about": {
+    "kicker": "Despre echipă",
+    "title": "Construim drift-ul românesc, tur cu tur.",
+    "body": "Suntem o echipă pasionată de motorsport, intrată în al patrulea sezon în Campionatul Național de Drift (RoDrift). În 2024 am fost promovați în clasa PRO. În 2025 am terminat sezonul pe locul 7. În 2026 luptăm pentru titlu — momentan suntem pe locul 3. Construim mașinile cu mâna noastră, filmăm tot procesul și avem cel mai mare canal de drift din România.",
+    "stats": {
+      "season": "al 4-lea sezon",
+      "class": "Clasa PRO",
+      "rank": "P3 / 2026"
+    }
+  },
+  "car": {
+    "kicker": "Mașina de competiție",
+    "title": "BMW E46 · 4.4 V8 Turbo",
+    "body": "Construită manual din zero. Motor BMW M62 4.4 V8 cu turbo. Putere maximă: 600 cp la roți. Cuplu: 800 Nm. Una dintre cele mai spectaculoase mașini din campionat.",
+    "specs": {
+      "engine": "Motor",
+      "engine_v": "BMW M62 4.4 V8 Turbo",
+      "power": "Putere",
+      "power_v": "600 cp la roți",
+      "torque": "Cuplu",
+      "torque_v": "800 Nm",
+      "drive": "Tracțiune",
+      "drive_v": "Spate · diferențial blocat",
+      "chassis": "Șasiu",
+      "chassis_v": "BMW E46 Coupé",
+      "livery": "Livrea",
+      "livery_v": "Verde · roșu · alb"
+    }
+  },
+  "team": {
+    "kicker": "Echipa",
+    "title": "Patru oameni, o singură misiune.",
+    "members": {
+      "andrei": {
+        "name": "Andrei Cristea",
+        "role": "Pilot principal · PRO"
+      },
+      "razvan": {
+        "name": "Răzvan Rizescu",
+        "role": "Crew chief · Pilot STREET"
+      },
+      "alex": {
+        "name": "Alexandru Popescu",
+        "role": "Specialist mecanic"
+      },
+      "radu": {
+        "name": "Radu Cristea",
+        "role": "Media"
+      }
+    }
+  },
+  "results": {
+    "kicker": "Rezultate",
+    "title": "Drumul către titlu.",
+    "items": {
+      "y2024": { "year": "2024", "label": "Promovați în clasa PRO" },
+      "y2025": { "year": "2025", "label": "Locul 7 în RoDrift PRO" },
+      "y2026": { "year": "2026", "label": "Locul 3 — sezon în curs" }
+    }
+  },
+  "reach": {
+    "kicker": "Audiență",
+    "title": "Cea mai urmărită echipă de drift din România.",
+    "body": "Numere agregate din sezonul RoDrift 2023 plus social media live. Drifting-ul românesc crește — și noi creștem cu el.",
+    "metrics": {
+      "unique": "Audiență unică totală",
+      "ig_reach": "Reach Instagram",
+      "tv": "Reach TV",
+      "radio": "Reach radio",
+      "attendance": "Spectatori la evenimente",
+      "yt_subs": "Abonați YouTube",
+      "ig_followers": "Followers Instagram"
+    },
+    "caveat": "Cifre din sezonul RoDrift 2023; social media — date curente."
+  },
+  "community": {
+    "kicker": "Suporterii",
+    "title": "Cea mai mare bază de fani din campionat.",
+    "body": "La fiecare etapă, fanii noștri vin cu zecile — toți poartă tricouri cu echipa și partenerii. Nu doar urmărim drift-ul, construim o comunitate."
+  },
+  "partners": {
+    "kicker": "Parteneri",
+    "title": "Cu ei mergem mai departe.",
+    "cta": "Vezi ce oferim partenerilor →"
+  },
+  "goals": {
+    "kicker": "Obiective",
+    "title": "Două ținte clare.",
+    "items": {
+      "national": {
+        "title": "Câștigăm campionatul național",
+        "body": "Suntem pe locul 3 în 2026. Următorul pas: titlul de campion RoDrift PRO."
+      },
+      "international": {
+        "title": "Mergem internațional",
+        "body": "Pregătim debutul în Drift Masters European Championship — cea mai mare competiție de drift din Europa."
+      }
+    }
+  },
+  "support": {
+    "kicker": "Susține-ne",
+    "title": "Trei feluri să fii alături de echipă.",
+    "items": {
+      "form230": {
+        "title": "Formular 230",
+        "body": "Redirecționează 3,5% din impozit către Asociația Club Sportiv RBuilds Motorsport. Nu te costă nimic — pentru noi e enorm.",
+        "cta": "Redirecționează acum"
+      },
+      "partner": {
+        "title": "Devino partener",
+        "body": "Vrei să-ți expui brandul prin motorsport? Avem pachete personalizabile pentru orice buget și obiectiv.",
+        "cta": "Vezi parteneriate"
+      },
+      "shop": {
+        "title": "Magazin echipă",
+        "body": "Tricouri, șepci și piese dezvoltate de noi pentru BMW E46. Fiecare produs cumpărat susține sezonul.",
+        "cta": "Intră în magazin"
+      }
+    }
+  },
+  "contact": {
+    "kicker": "Contact",
+    "title": "Scrie-ne.",
+    "body": "Pentru parteneriate, comenzi din magazin sau orice întrebare despre echipă.",
+    "form": {
+      "name": "Nume",
+      "email": "Email",
+      "company": "Companie (opțional)",
+      "subject": "Subiect",
+      "subject_partnership": "Parteneriat",
+      "subject_order": "Comandă magazin",
+      "subject_other": "Altceva",
+      "message": "Mesaj",
+      "submit": "Trimite mesajul",
+      "sending": "Se trimite…",
+      "success": "Mulțumim! Revenim cât putem de repede.",
+      "error": "Ceva a mers prost. Trimite-ne direct un email."
+    },
+    "direct": "Sau direct:"
+  },
+  "partnerships": {
+    "title": "Parteneriate",
+    "hero_title": "Aducem brandul tău în motorsport.",
+    "hero_body": "Pachete personalizabile pentru orice obiectiv — de la expunere pe mașină până la campanii video pe YouTube. Toate detaliile, fără prețuri publice — discutăm direct.",
+    "offers_title": "Ce oferim partenerilor",
+    "offers": {
+      "car": {
+        "title": "Livrea mașinii de curse",
+        "body": "Sigla ta pe BMW-ul de competiție — văzut de mii de spectatori la fiecare etapă și de zeci de mii de privitori online."
+      },
+      "suit": {
+        "title": "Branding combinezon pilot",
+        "body": "Sigla pe combinezonul pilotului — vizibil în toate sesiunile foto, interviuri și pe podium."
+      },
+      "uniform": {
+        "title": "Uniforma echipei",
+        "body": "Cinci membri ai echipei la fiecare eveniment, toți în aceeași uniformă cu sigla ta. Plus sute de fani cu tricouri branded."
+      },
+      "social": {
+        "title": "Campanie social media",
+        "body": "Conținut săptămânal pe YouTube, Instagram, TikTok. Reclame video, mențiuni, integrări naturale în vlog-urile noastre."
+      },
+      "paddock": {
+        "title": "Marketing la evenimente",
+        "body": "Banner-e, fanioane, materiale promoționale în paddock-ul echipei. Distribuție de pliante către spectatori."
+      }
+    },
+    "cta": "Hai să vorbim"
+  },
+  "shop": {
+    "title": "Magazin",
+    "hero_title": "Echipează-te cu echipa.",
+    "hero_body": "Produse selecționate — tricouri, șepci și piese dezvoltate de noi pentru BMW E46. Comenzi prin contact direct.",
+    "sold_out": "Stoc epuizat",
+    "from": "de la",
+    "currency": "lei",
+    "order_cta": "Contactează-ne pentru comandă",
+    "back": "← Înapoi la magazin",
+    "product_label": "Produs"
+  },
+  "footer": {
+    "tagline": "Pro drift team din România.",
+    "socials": "Social",
+    "links": "Legături",
+    "contact_label": "Contact",
+    "form230": "Formular 230",
+    "rights": "Toate drepturile rezervate."
+  }
+}

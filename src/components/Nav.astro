@@ -1,0 +1,99 @@
+---
+import { t, localePath, type Locale } from '../i18n';
+import LangSwitch from './LangSwitch.astro';
+
+interface Props { locale: Locale; pageKey?: 'home' | 'partnerships' | 'shop' | 'product'; }
+const { locale, pageKey = 'home' } = Astro.props;
+const dict = t(locale);
+
+const homeAnchor = (id: string) => (pageKey === 'home' ? `#${id}` : `${localePath(locale)}#${id}`);
+
+const links = [
+  { label: dict.nav.team, href: homeAnchor('team') },
+  { label: dict.nav.car, href: homeAnchor('car') },
+  { label: dict.nav.reach, href: homeAnchor('reach') },
+  { label: dict.nav.partners, href: homeAnchor('partners') },
+  { label: dict.nav.partnerships, href: localePath(locale, 'partnerships') },
+  { label: dict.nav.shop, href: localePath(locale, 'shop') },
+];
+---
+<header
+  data-nav
+  class="fixed top-0 inset-x-0 z-40 transition-all duration-300 [&.is-scrolled]:bg-[color-mix(in_oklab,var(--color-bg)_85%,transparent)] [&.is-scrolled]:backdrop-blur-md [&.is-scrolled]:border-b [&.is-scrolled]:border-[var(--color-border)]"
+>
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+    <a href={localePath(locale)} class="flex items-center gap-2 group" aria-label="RO Builds Motorsport">
+      <img
+        src="/logos/robuilds/wordmark-white.png"
+        alt="RO Builds Motorsport"
+        width="140"
+        height="32"
+        class="h-7 sm:h-8 w-auto transition-transform group-hover:scale-105"
+        loading="eager"
+      />
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-7" aria-label="Primary">
+      {links.map((l) => (
+        <a href={l.href} class="text-sm font-medium tracking-wide text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors relative after:content-[''] after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-[var(--color-accent)] after:transition-all hover:after:w-full">
+          {l.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3 sm:gap-4">
+      <LangSwitch locale={locale} class="hidden sm:inline-flex" />
+      <a
+        href={homeAnchor('partnership')}
+        class="hidden sm:inline-flex items-center px-4 py-2 text-xs sm:text-sm font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black hover:bg-[var(--color-accent-deep)] hover:text-white transition-colors rounded-sm"
+      >
+        {dict.nav.cta}
+      </a>
+      <button
+        type="button"
+        aria-label="Menu"
+        aria-expanded="false"
+        data-mobile-toggle
+        class="lg:hidden inline-flex items-center justify-center w-10 h-10 -mr-2 text-[var(--color-text)]"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square">
+          <line x1="3" y1="7" x2="21" y2="7" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="17" x2="21" y2="17" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div
+    data-mobile-panel
+    class="lg:hidden hidden border-t border-[var(--color-border)] bg-[var(--color-bg)]"
+  >
+    <nav class="px-4 sm:px-6 py-4 flex flex-col gap-1" aria-label="Mobile">
+      {links.map((l) => (
+        <a href={l.href} data-mobile-link class="py-3 text-base font-medium text-[var(--color-text)] border-b border-[var(--color-border)] last:border-b-0">
+          {l.label}
+        </a>
+      ))}
+      <div class="flex items-center justify-between pt-4">
+        <LangSwitch locale={locale} />
+        <a href={homeAnchor('partnership')} data-mobile-link class="inline-flex items-center px-4 py-2 text-xs font-semibold tracking-wide uppercase bg-[var(--color-accent)] text-black rounded-sm">
+          {dict.nav.cta}
+        </a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.querySelector<HTMLButtonElement>('[data-mobile-toggle]');
+  const panel = document.querySelector<HTMLDivElement>('[data-mobile-panel]');
+  if (btn && panel) {
+    const close = () => { panel.classList.add('hidden'); btn.setAttribute('aria-expanded', 'false'); };
+    btn.addEventListener('click', () => {
+      const open = panel.classList.toggle('hidden') === false;
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    panel.querySelectorAll('[data-mobile-link]').forEach((a) => a.addEventListener('click', close));
+  }
+</script>

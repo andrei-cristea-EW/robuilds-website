@@ -1,0 +1,20 @@
+---
+import { t, type Locale } from '../i18n';
+const { locale } = Astro.props as { locale: Locale };
+const dict = t(locale);
+---
+<section id="community" class="relative bg-black py-20 sm:py-28 overflow-hidden">
+  <picture class="absolute inset-0 -z-10">
+    <source srcset="/images/fans-supporters-portrait.webp" type="image/webp" />
+    <img src="/images/fans-supporters-portrait.jpg" alt="" class="hero-zoom w-full h-full object-cover opacity-40" loading="lazy" decoding="async" />
+  </picture>
+  <div class="absolute inset-0 -z-10 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="reveal max-w-2xl">
+      <p class="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--color-accent)] mb-4">{dict.community.kicker}</p>
+      <h2 class="font-display text-3xl sm:text-5xl lg:text-6xl leading-[0.95] text-white">{dict.community.title}</h2>
+      <p class="mt-5 text-base sm:text-lg text-[var(--color-text)]/85">{dict.community.body}</p>
+    </div>
+  </div>
+</section>
