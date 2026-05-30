@@ -153,24 +153,20 @@
   "partnerships": {
     "title": "Parteneriate",
     "hero_title": "Aducem brandul tău în motorsport.",
-    "hero_body": "Pachete personalizabile pentru orice obiectiv — de la expunere pe mașină până la campanii video pe YouTube. Toate detaliile, fără prețuri publice — discutăm direct.",
+    "hero_body": "Pachete personalizabile pentru orice obiectiv — de la expunere pe mașină până la campanii video pe YouTube.",
     "offers_title": "Ce oferim partenerilor",
     "offers": {
       "car": {
         "title": "Branding pe mașina de curse",
         "body": "Sigla ta pe BMW-ul de competiție — văzut de mii de spectatori la fiecare etapă și de zeci de mii de privitori online."
       },
-      "suit": {
-        "title": "Branding combinezon pilot",
-        "body": "Sigla pe combinezonul pilotului — vizibil în toate sesiunile foto, interviuri și pe podium."
-      },
       "uniform": {
         "title": "Uniforma echipei",
-        "body": "Cinci membri ai echipei la fiecare eveniment, toți în aceeași uniformă cu sigla ta. Plus sute de fani cu tricouri branded."
+        "body": "Cinci membri ai echipei la fiecare eveniment, toți în aceeași uniformă cu sigla ta — plus combinezonul pilotului, vizibil în sesiuni foto, interviuri și pe podium. Și sute de fani cu tricouri branded."
       },
       "social": {
         "title": "Campanie social media",
-        "body": "Conținut săptămânal pe YouTube, Instagram, TikTok. Reclame video, mențiuni, integrări naturale în vlog-urile noastre."
+        "body": "Conținut personalizat pe cel mai mare canal de YouTube despre drift din România, plus Instagram și TikTok. Reclame video, mențiuni și integrări naturale în vlog-uri."
       },
       "paddock": {
         "title": "Marketing la evenimente",
