@@ -13,7 +13,7 @@ interface Props {
   ogImage?: string;
 }
 
-const { locale, pageKey = 'home', titleOverride, descriptionOverride, ogImage = '/images/bmw-e46-night-side.jpg' } = Astro.props;
+const { locale, pageKey = 'home', titleOverride, descriptionOverride, ogImage = '/images/og-image.jpg' } = Astro.props;
 const dict = t(locale);
 const title = titleOverride ?? dict.meta.title;
 const description = descriptionOverride ?? dict.meta.description;
@@ -38,6 +38,8 @@ const canonical = new URL(Astro.url.pathname, SITE.url).toString();
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(ogImage, SITE.url).toString()} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:url" content={canonical} />
     <meta property="og:site_name" content={SITE.name} />
     <meta property="og:locale" content={locale === 'ro' ? 'ro_RO' : 'en_US'} />
