@@ -31,7 +31,7 @@ const DEFAULT_DIFFS = [3.46, 3.9, 4.1]; // dynamic list
 const inputClass =
   'w-full max-w-[9rem] rounded-sm bg-[var(--color-bg-elevated)] border border-[var(--color-border)] px-3 py-2.5 text-white tabular-nums focus:border-[var(--color-accent)] focus:outline-none transition-colors';
 const presetBtnClass =
-  'shrink-0 w-auto max-w-[12rem] truncate appearance-none cursor-pointer rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-center text-[var(--color-accent)] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-black focus:border-[var(--color-accent)] focus:outline-none transition-colors';
+  'shrink-0 w-auto max-w-[12rem] truncate appearance-none cursor-pointer rounded-sm border border-[var(--color-border)] bg-[var(--color-bg-elevated)] px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-center [text-align-last:center] text-[var(--color-accent)] hover:border-[var(--color-accent)] hover:bg-[var(--color-accent)] hover:text-black focus:border-[var(--color-accent)] focus:outline-none transition-colors';
 const labelClass =
   'block text-xs font-medium uppercase tracking-wider text-[var(--color-text-muted)] mb-1.5';
 ---
@@ -53,7 +53,7 @@ const labelClass =
           <!-- Engine & Tires -->
           <section class="pb-6">
             <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-[var(--color-accent)] mb-3">{c.sections.engine_tires}</h3>
-            <div class="grid grid-cols-2 gap-4">
+            <div class="grid grid-cols-2 gap-4 items-end">
               <div>
                 <label class={labelClass} for="calc-rpm">{c.labels.rpm}</label>
                 <input id="calc-rpm" data-rpm type="number" inputmode="numeric" min="0" step="100" value="7000" class={inputClass} />
