@@ -43,7 +43,7 @@ export const PRODUCTS: Product[] = [
     priceFrom: true,
     status: 'available',
     category: 'tail-lights',
-    images: ['/images/shop/tail-e46-2', '/images/shop/tail-e46-1', '/images/shop/tail-e46-3', '/images/shop/tail-e46-4'],
+    images: ['/images/shop/tail-e46-1', '/images/shop/tail-e46-2', '/images/shop/tail-e46-3'],
     blurb: {
       ro: 'Stopuri printate 3D pentru BMW E46 Coupé. Ieftine, ușor și rapid de montat, mereu pe stoc.',
       en: '3D-printed tail-lights for the BMW E46 Coupé. Affordable, quick and easy to fit, always in stock.',
