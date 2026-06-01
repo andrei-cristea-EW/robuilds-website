@@ -126,7 +126,7 @@ const labelClass =
         <p class="text-xs text-[var(--color-text-muted)] mb-5">{c.legend}</p>
 
         <div class="overflow-x-auto -mx-1 px-1">
-          <table data-table class="w-full text-left border-collapse tabular-nums"></table>
+          <table data-table class="w-full text-left border-separate border-spacing-0 tabular-nums"></table>
         </div>
 
         <div class="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
@@ -174,10 +174,10 @@ const labelClass =
       const tireFull = Number.isFinite(diameter) && diameter > 0 ? `${tireStr} · Ø${Math.round(diameter)} mm` : tireStr;
       readout.textContent = Number.isFinite(diameter) && diameter > 0 ? tireFull : '';
 
-      const gears = [...section.querySelectorAll('[data-gear-ratio]')].map((el, i) => ({
-        n: i + 1,
-        ratio: parseFloat(el.value),
-      }));
+      // Only gears with a valid ratio get a column (empty/blank inputs are skipped).
+      const gears = [...section.querySelectorAll('[data-gear-ratio]')]
+        .map((el, i) => ({ n: i + 1, ratio: parseFloat(el.value) }))
+        .filter((g) => g.ratio > 0);
       const diffVals = [...diffs.querySelectorAll('[data-diff-ratio]')].map((el) => parseFloat(el.value));
 
       const speed = (gear, final) => {
@@ -188,7 +188,7 @@ const labelClass =
       };
 
       // Build the table (header + body) from scratch.
-      const headCells = [`<th class="sticky left-0 z-10 bg-[var(--color-bg-card)] py-3 pr-4"></th>`];
+      const headCells = [`<th class="sticky left-0 z-10 bg-[var(--color-bg-card)] py-3 pl-2 sm:pl-4 pr-2 sm:pr-4"></th>`];
       gears.forEach((g) => {
         const r = g.ratio > 0 ? g.ratio.toFixed(2) : '—';
         headCells.push(
@@ -204,19 +204,19 @@ const labelClass =
         const cells = gears.map((g) => {
           const v = speed(g.ratio, final);
           const txt = v === null ? '—' : v.toFixed(1);
-          return `<td class="py-3 px-2 sm:px-4 text-right tabular-nums text-sm sm:text-lg text-white">${txt}</td>`;
+          return `<td class="border-t border-[var(--color-border)] py-3 px-2 sm:px-4 text-right tabular-nums text-sm sm:text-lg text-white">${txt}</td>`;
         });
         const zebra = ri % 2 === 1 ? ' bg-[var(--color-bg-elevated)]' : ' bg-[var(--color-bg-card)]';
         return (
-          `<tr class="border-t border-[var(--color-border)]${zebra}">` +
-            `<td class="sticky left-0 z-10${zebra} py-3 pr-2 sm:pr-4 text-left font-display text-lg sm:text-2xl text-[var(--color-accent)] whitespace-nowrap">${finalStr}</td>` +
+          `<tr class="${zebra}">` +
+            `<td class="sticky left-0 z-10${zebra} border-t border-[var(--color-border)] py-3 pl-2 sm:pl-4 pr-2 sm:pr-4 text-left font-display text-lg sm:text-2xl text-[var(--color-accent)] whitespace-nowrap">${finalStr}</td>` +
             cells.join('') +
           `</tr>`
         );
       });
 
       table.innerHTML =
-        `<thead><tr class="border-b border-[var(--color-border)]">${headCells.join('')}</tr></thead>` +
+        `<thead><tr>${headCells.join('')}</tr></thead>` +
         `<tbody>${bodyRows.join('')}</tbody>`;
 
       // Snapshot for the PNG.
