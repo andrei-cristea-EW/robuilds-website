@@ -11,6 +11,8 @@
     "partners": "Parteneri",
     "shop": "Magazin",
     "partnerships": "Parteneriate",
+    "calculator": "Calculator",
+    "calculator_full": "Calculator Viteză Roată",
     "support": "Susține-ne",
     "cta": "Devino partener"
   },
@@ -197,6 +199,49 @@
     "order_cta": "Comandă pe WhatsApp",
     "back": "← Înapoi la magazin",
     "product_label": "Produs"
+  },
+  "calculator": {
+    "title": "Calculator viteză pe trepte",
+    "body": "Calculează viteza teoretică în fiecare treaptă în funcție de turație, anvelope, rapoartele din cutie și raportul final de transmisie.",
+    "inputs_title": "Date de intrare",
+    "results_title": "Viteză pe trepte",
+    "sections": {
+      "engine": "Motor",
+      "gearbox": "Cutie de viteze",
+      "differential": "Diferențial",
+      "tires": "Anvelope",
+      "engine_tires": "Motor & Anvelope"
+    },
+    "labels": {
+      "rpm": "Turație (RPM)",
+      "rim": "Diametru jantă (inch)",
+      "width": "Lățime anvelopă (mm)",
+      "aspect": "Profil anvelopă (%)",
+      "final_drive": "Raport final",
+      "final_drives": "Rapoarte finale",
+      "gears": "Rapoarte cutie",
+      "gear": "Treapta",
+      "preset": "Presetare cutie",
+      "load_preset": "Încarcă presetare",
+      "custom": "Personalizat"
+    },
+    "presets": {
+      "p5": "5 trepte · benzină",
+      "d5": "5 trepte · diesel",
+      "p6": "6 trepte · benzină",
+      "d6": "6 trepte · diesel"
+    },
+    "table": {
+      "gear": "Treapta",
+      "ratio": "Raport",
+      "kmh": "km/h",
+      "final": "Final"
+    },
+    "legend": "Coloane: trepte · Rânduri: raport final · viteză în km/h",
+    "add_diff": "+ Adaugă raport",
+    "remove_diff": "Șterge diferențialul",
+    "download": "Descarcă tabelul (imagine)",
+    "disclaimer": "Viteze teoretice la turația dată — fără patinare, creșterea anvelopei la viteză sau limite de putere/aerodinamică."
   },
   "footer": {
     "tagline": "Construim. Conducem. Filmăm. Drift profesionist din România, gata de Europa.",

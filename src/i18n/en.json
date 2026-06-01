@@ -11,6 +11,8 @@
     "partners": "Partners",
     "shop": "Shop",
     "partnerships": "Partnerships",
+    "calculator": "Calculator",
+    "calculator_full": "Wheel Speed Calculator",
     "support": "Support",
     "cta": "Become a partner"
   },
@@ -197,6 +199,49 @@
     "order_cta": "Order on WhatsApp",
     "back": "← Back to shop",
     "product_label": "Product"
+  },
+  "calculator": {
+    "title": "Gear speed calculator",
+    "body": "Work out the theoretical speed in each gear from engine RPM, tire size, gearbox ratios and the final drive.",
+    "inputs_title": "Inputs",
+    "results_title": "Speed per gear",
+    "sections": {
+      "engine": "Engine",
+      "gearbox": "Gearbox",
+      "differential": "Differential",
+      "tires": "Tires",
+      "engine_tires": "Engine & Tires"
+    },
+    "labels": {
+      "rpm": "Engine RPM",
+      "rim": "Rim diameter (in)",
+      "width": "Tire width (mm)",
+      "aspect": "Tire wall / aspect (%)",
+      "final_drive": "Final drive",
+      "final_drives": "Final Drive Ratios",
+      "gears": "Gearbox ratios",
+      "gear": "Gear",
+      "preset": "Gearbox preset",
+      "load_preset": "Load Preset",
+      "custom": "Custom"
+    },
+    "presets": {
+      "p5": "5-spd · petrol",
+      "d5": "5-spd · diesel",
+      "p6": "6-spd · petrol",
+      "d6": "6-spd · diesel"
+    },
+    "table": {
+      "gear": "Gear",
+      "ratio": "Ratio",
+      "kmh": "km/h",
+      "final": "Final"
+    },
+    "legend": "Columns: gears · Rows: final drive · speed in km/h",
+    "add_diff": "+ Add Ratio",
+    "remove_diff": "Remove differential",
+    "download": "Download table (image)",
+    "disclaimer": "Theoretical speeds at the given RPM — ignores wheel slip, tire growth at speed and power/aero limits."
   },
   "footer": {
     "tagline": "We build. We drive. We film. Pro drift out of Romania — heading to Europe next.",

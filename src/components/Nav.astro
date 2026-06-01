@@ -2,7 +2,7 @@
 import { t, localePath, type Locale } from '../i18n';
 import LangSwitch from './LangSwitch.astro';
 
-interface Props { locale: Locale; pageKey?: 'home' | 'partnerships' | 'shop' | 'product'; }
+interface Props { locale: Locale; pageKey?: 'home' | 'partnerships' | 'shop' | 'product' | 'calculator'; }
 const { locale, pageKey = 'home' } = Astro.props;
 const dict = t(locale);
 
@@ -14,6 +14,7 @@ const links = [
   { label: dict.nav.reach, href: homeAnchor('reach') },
   { label: dict.nav.partnerships, href: localePath(locale, 'partnerships') },
   { label: dict.nav.shop, href: localePath(locale, 'shop') },
+  { label: dict.nav.calculator, mobileLabel: dict.nav.calculator_full, href: localePath(locale, 'calculator') },
 ];
 ---
 <header
@@ -65,7 +66,7 @@ const links = [
     <nav class="px-4 sm:px-6 py-4 flex flex-col gap-1" aria-label="Mobile">
       {links.map((l) => (
         <a href={l.href} data-mobile-link class="py-3 text-lg font-medium text-[var(--color-text)] border-b border-[var(--color-border)] last:border-b-0">
-          {l.label}
+          {l.mobileLabel ?? l.label}
         </a>
       ))}
       <div class="flex items-center justify-between pt-4">

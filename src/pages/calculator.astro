@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import Calculator from '../components/Calculator.astro';
+import { t } from '../i18n';
+
+const locale = 'ro' as const;
+const dict = t(locale);
+---
+<Base locale={locale} pageKey="calculator" titleOverride={`${dict.calculator.title} · ${dict.meta.title}`} descriptionOverride={dict.calculator.body}>
+  <Calculator locale={locale} />
+</Base>
