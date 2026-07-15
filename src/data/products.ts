@@ -122,6 +122,44 @@ export const PRODUCTS: Product[] = [
       ],
     },
   },
+  {
+    slug: 'clante-portiera-universale',
+    name: { ro: 'Clanțe Universale de Portieră', en: 'Universal Door Handles' },
+    price: 190,
+    status: 'available',
+    category: 'parts-3d',
+    images: [
+      '/images/shop/door-handle-1',
+      '/images/shop/door-handle-5',
+      '/images/shop/door-handle-7',
+      '/images/shop/door-handle-8',
+      '/images/shop/door-handle-9',
+      '/images/shop/door-handle-11',
+      '/images/shop/door-handle-2',
+      '/images/shop/door-handle-3',
+      '/images/shop/door-handle-4',
+      '/images/shop/door-handle-6',
+      '/images/shop/door-handle-10',
+    ],
+    blurb: {
+      ro: 'Clanțe plate universale, compatibile cu sistemul de închidere de BMW E46. Se montează pe orice tip de portieră.',
+      en: 'Flat universal door handles, compatible with the BMW E46 latch system. Fit any door material.',
+    },
+    description: {
+      ro: [
+        'Clanțe de portieră universale, cu profil complet plat, gândite pentru portierele ușoare de competiție din fibră de sticlă, carbon-kevlar sau carbon.',
+        'Sunt făcute compatibile cu sistemul de închidere (broasca) de BMW E46, așa că se leagă direct la mecanismul original, fără adaptări complicate.',
+        'Fiind complet plate, se pot aplica pe orice material de portieră și pe practic orice mașină — soluția ideală după ce ai renunțat la panoul de ușă din serie.',
+        'Se pot realiza în orice combinație de culori, ca să se potrivească cu interiorul sau livrea mașinii tale.',
+      ],
+      en: [
+        'Universal door handles with a completely flat profile, designed for lightweight motorsport doors made from fiberglass, carbon-kevlar or full carbon.',
+        'They are made compatible with the BMW E46 door latch system, so they connect straight to the factory-style mechanism with no awkward adapting.',
+        "Because they're completely flat, they can be fitted to any door material and to virtually any car — the ideal solution once you've stripped out the standard door card.",
+        'They can be made in any colour combination to match your interior or your car livery.',
+      ],
+    },
+  },
 ];
 
 export function getProduct(slug: string): Product | undefined {
